@@ -49,6 +49,9 @@ app.post('/upload', function(req, res) {
   });
 });
 
+const opcionesRoutes = require('./server/routes/opciones')
+const alcacesRoutes = require('./server/routes/alcance')
+
 const alumnosRoutes = require('./server/routes/alumnos');
 const tutoresRoutes = require('./server/routes/tutores');
 const personalRoutes = require('./server/routes/personal');
@@ -63,6 +66,8 @@ const repositorio = require('./server/routes/repositorio');
 
 
 app.use('/api', [
+  opcionesRoutes,
+  alcacesRoutes,
   alumnosRoutes,
   tutoresRoutes,
   personalRoutes,
