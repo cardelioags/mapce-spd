@@ -8,3 +8,5 @@ router.route('/personas')
 .post((req, res)=>{
     res.send('TODO personas post')
 })
+
+module.exports = router;

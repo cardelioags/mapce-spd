@@ -51,6 +51,7 @@ app.post('/upload', function(req, res) {
 
 const opcionesRoutes = require('./server/routes/opciones')
 const alcacesRoutes = require('./server/routes/alcance')
+const personasRoutes = require('./server/routes/personas')
 
 const alumnosRoutes = require('./server/routes/alumnos');
 const tutoresRoutes = require('./server/routes/tutores');
@@ -66,6 +67,7 @@ const repositorio = require('./server/routes/repositorio');
 
 
 app.use('/api', [
+  personasRoutes,
   opcionesRoutes,
   alcacesRoutes,
   alumnosRoutes,
