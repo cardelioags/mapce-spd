@@ -5,11 +5,23 @@
   </mat-toolbar>
   <mat-nav-list td-sidenav-content [tdLayoutManageListClose]="!media.query('gt-sm')">
     <ng-template let-item let-last="last" ngFor [ngForOf]="navmenu">
-      <a mat-list-item>
+      <a mat-list-item [routerLink]="[item.route]">
         <mat-icon matListIcon>{{item.icon}}</mat-icon> {{item.title}}
       </a>
     </ng-template>
   </mat-nav-list>
+  <mat-toolbar>
+    <div layout="row" layout-align="start center" flex>
+      <button mat-icon-button tdLayoutManageListOpen [hideWhenOpened]="true">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <span tdLayoutManageListOpen [hideWhenOpened]="true">Administración</span>
+      <span flex></span>
+      <button mat-icon-button>
+        <mat-icon>settings</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
   <router-outlet></router-outlet>
   <td-layout-footer-inner>
     Optional inner footer

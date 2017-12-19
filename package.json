@@ -12,7 +12,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular-devkit/schematics": "0.0.40",
+    "@angular-devkit/schematics": "0.0.42",
     "@angular/animations": "^5.1.1",
     "@angular/cdk": "^5.0.1",
     "@angular/common": "^5.1.1",
@@ -24,7 +24,7 @@
     "@angular/platform-browser": "^5.1.1",
     "@angular/platform-browser-dynamic": "^5.1.1",
     "@angular/router": "^5.1.1",
-    "@covalent/core": "^1.0.0-rc.1",
+    "@covalent/core": "git+https://github.com/Teradata/covalent-nightly.git",
     "body-parser": "^1.18.2",
     "core-js": "^2.5.3",
     "express": "^4.16.2",

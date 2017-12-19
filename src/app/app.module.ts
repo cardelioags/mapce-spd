@@ -7,8 +7,10 @@ import { AppRoutingModule } from "./app.routes";
 
 import { 
   CovalentLayoutModule,
+  CovalentStepsModule,
   CovalentMediaModule,
   TdMediaService,
+  TdLayoutManageListToggleDirective,
 } from "@covalent/core";
 
 import { 
@@ -61,6 +63,7 @@ import { AlcancesComponent } from './administracion/alcances/alcances.component'
     FormsModule,
     AppRoutingModule,
     CovalentLayoutModule,
+    CovalentStepsModule,
     CovalentMediaModule,
     MatIconModule,
     MatListModule,
@@ -71,7 +74,7 @@ import { AlcancesComponent } from './administracion/alcances/alcances.component'
     MatMenuModule,
     MatTooltipModule
   ],
-  providers: [ TdMediaService ],
+  providers: [ TdMediaService, TdLayoutManageListToggleDirective ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

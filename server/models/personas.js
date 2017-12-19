@@ -19,6 +19,7 @@ var PersonaSchema = new Schema({
     estado: String,
     longitud: Number,
     latitud: Number,
+    last: Date
 }, {
     collection: 'personas'
 });
