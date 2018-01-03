@@ -13,7 +13,7 @@ export class AdministracionComponent implements AfterViewInit {
  
   navmenu: Object[] = [{
       icon: 'people',
-      route: '.',
+      route: '/administracion/personas',
       title: 'Personas',
       description: 'Administración de Personas Registradas',
     }, {
@@ -34,7 +34,7 @@ export class AdministracionComponent implements AfterViewInit {
     }, {
       icon: 'input',
       route: '.',
-      title: 'Administración de Alcances',
+      title: 'Alcances',
       description: 'Administración de Alcances',
     },
   ];

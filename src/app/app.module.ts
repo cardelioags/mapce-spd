@@ -8,8 +8,14 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { 
   CovalentLayoutModule,
+  CovalentStepsModule,
   CovalentMediaModule,
+<<<<<<< HEAD
   TdMediaService
+=======
+  TdMediaService,
+  TdLayoutManageListToggleDirective,
+>>>>>>> 8a33c5353727b9cbf6d9ad2840eab63979a37e12
 } from "@covalent/core";
 
 import { 
@@ -63,6 +69,7 @@ import { AlcancesComponent } from './administracion/alcances/alcances.component'
     FormsModule,
     AppRoutingModule,
     CovalentLayoutModule,
+    CovalentStepsModule,
     CovalentMediaModule,
     MatIconModule,
     MatListModule,
@@ -73,7 +80,7 @@ import { AlcancesComponent } from './administracion/alcances/alcances.component'
     MatMenuModule,
     MatTooltipModule
   ],
-  providers: [ TdMediaService ],
+  providers: [ TdMediaService, TdLayoutManageListToggleDirective ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

@@ -10,6 +10,7 @@ import { ReconocimientoComponent } from "./reconocimiento/reconocimiento.compone
 import { FormacionContinuaComponent } from "./formacion-continua/formacion-continua.component";
 import { AdministracionComponent } from "./administracion/administracion.component"
 import { MainAdministracionComponent } from "./administracion/main-administracion/main-administracion.component"
+import { PersonasComponent } from './administracion/personas/personas.component';
 
 
 const routes: Routes = [
@@ -21,9 +22,9 @@ const routes: Routes = [
   { path: 'reconocimiento', component: ReconocimientoComponent },
   { path: 'formacionContinua', component: FormacionContinuaComponent },
   {
-    path: 'administracion', children: [
+    path: 'administracion',  component: AdministracionComponent, children: [
       {path: '', component: MainAdministracionComponent},
-      {path: 'personas', component: MainAdministracionComponent}
+      {path: 'personas', component: PersonasComponent}
     ]
   }
 
