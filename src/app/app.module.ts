@@ -4,11 +4,12 @@ import { RouterModule } from "@angular/router";
 import { NgModule } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app.routes";
+import { HttpClientModule } from '@angular/common/http';
 
 import { 
   CovalentLayoutModule,
   CovalentMediaModule,
-  TdMediaService,
+  TdMediaService
 } from "@covalent/core";
 
 import { 
@@ -57,6 +58,7 @@ import { AlcancesComponent } from './administracion/alcances/alcances.component'
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     RouterModule,
     FormsModule,
     AppRoutingModule,
