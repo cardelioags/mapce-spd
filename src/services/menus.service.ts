@@ -16,7 +16,7 @@ export class MenusService {
         {
             link: '/promocion',
             icon: 'supervisor_account',
-            title: 'Promocion',
+            title: 'Promoción',
         },
         {
             link: '/desempeno',

@@ -1,1 +1,17 @@
-<router-outlet></router-outlet>
+<td-layout>
+    <td-navigation-drawer flex sidenavTitle="Servicio Profesional Docente" name="Nombre del Usuario" email="firstname.lastname@company.com">
+        <mat-nav-list>
+            <a *ngFor="let menu of navMenu" mat-list-item tdLayoutToggle [routerLink]="[ menu.link ]">
+                <mat-icon>{{menu.icon}}</mat-icon>{{menu.title}}</a>
+        </mat-nav-list>
+        <div td-navigation-drawer-menu>
+            <mat-nav-list>
+                <a mat-list-item>
+                    <mat-icon>lock</mat-icon>Cerrar Sesión</a>
+                <a mat-list-item>
+                    <mat-icon>description</mat-icon>Mi cuenta</a>
+            </mat-nav-list>
+        </div>
+    </td-navigation-drawer>
+    <router-outlet></router-outlet>
+</td-layout>
