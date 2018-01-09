@@ -10,12 +10,7 @@ import {
   CovalentLayoutModule,
   CovalentStepsModule,
   CovalentMediaModule,
-<<<<<<< HEAD
-  TdMediaService
-=======
   TdMediaService,
-  TdLayoutManageListToggleDirective,
->>>>>>> 8a33c5353727b9cbf6d9ad2840eab63979a37e12
 } from "@covalent/core";
 
 import { 
@@ -82,7 +77,7 @@ import { AlcancesComponent } from './administracion/alcances/alcances.component'
     MatMenuModule,
     MatTooltipModule
   ],
-  providers: [ TdMediaService, TdLayoutManageListToggleDirective, MenusService ],
+  providers: [ TdMediaService, MenusService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
