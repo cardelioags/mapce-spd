@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { TdMediaService } from '@covalent/core';
+import { MenusService } from '../../services/menus.service'
 
 @Component({
   //changeDetection: ChangeDetectionStrategy.OnPush,
@@ -10,38 +11,13 @@ import { TdMediaService } from '@covalent/core';
 })
 export class AdministracionComponent implements AfterViewInit {
 
- 
-  navmenu: Object[] = [{
-      icon: 'people',
-      route: '/administracion/personas',
-      title: 'Personas',
-      description: 'Administración de Personas Registradas',
-    }, {
-      icon: 'person',
-      route: '.',
-      title: 'Usuarios',
-      description: 'Administración de Usuarios',
-    }, {
-      icon: 'verified_user',
-      route: '.',
-      title: 'Roles',
-      description: 'Administración de Roles',
-    }, {
-      icon: 'offline_pin',
-      route: '.',
-      title: 'Opciones',
-      description: 'Administración de Opciones',
-    }, {
-      icon: 'input',
-      route: '.',
-      title: 'Alcances',
-      description: 'Administración de Alcances',
-    },
-  ];
-
+  navMenu = [];
   constructor(private _changeDetectorRef: ChangeDetectorRef,
-              public media: TdMediaService) {}
-
+              public media: TdMediaService, public _menusService: MenusService) {
+                this.navMenu = this._menusService.getMenu();
+              }
+  
+  
   ngAfterViewInit(): void {
     // broadcast to all listener observables when loading the page
     setTimeout(() => { // workaround since MatSidenav has issues redrawing at the beggining

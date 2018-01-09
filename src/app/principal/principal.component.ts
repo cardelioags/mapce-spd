@@ -1,5 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { TdMediaService } from '@covalent/core';
+import { MenusService } from '../../services/menus.service'
 
 declare const gapi: any;
 
@@ -11,6 +12,7 @@ declare const gapi: any;
 })
 export class PrincipalComponent implements AfterViewInit {
   public suma = 0;
+  public navMenu = [];
   public usuario_inst: any = {};
   public auth2: any;
   public googleInit() {
@@ -41,7 +43,9 @@ export class PrincipalComponent implements AfterViewInit {
       });
   }
  
-  constructor(public media: TdMediaService) {}
+  constructor(public media: TdMediaService, public _menusService: MenusService) {
+    this.navMenu = this._menusService.getMenu();
+  }
 
   
   ngAfterViewInit(): void {

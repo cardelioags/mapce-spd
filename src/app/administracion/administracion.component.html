@@ -1,29 +1,40 @@
-<td-layout-manage-list #manageList [opened]="media.registerQuery('gt-sm') | async" [mode]="(media.registerQuery('gt-sm') | async) ? 'side' :  'over'"
-  [sidenavWidth]="(media.registerQuery('gt-xs') | async) ? '257px' : '100%'">
-  <mat-toolbar td-sidenav-content>
-    <span>Administración</span>
-  </mat-toolbar>
-  <mat-nav-list td-sidenav-content [tdLayoutManageListClose]="!media.query('gt-sm')">
+<td-layout-nav-list #navList color="primary" [opened]="media.registerQuery('gt-sm') | async" [mode]="(media.registerQuery('gt-sm') | async) ? 'side' : 'over'"
+  [sidenavWidth]="(media.registerQuery('gt-xs') | async) ? '350px' : '100%'">
+  <div td-sidenav-toolbar-content layout="row" layout-align="start center">
+    <button mat-icon-button tdLayoutToggle>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span [routerLink]="['/']" class="cursor-pointer">Servicio Profesional Docente</span>
+  </div>
+  <div td-toolbar-content layout="row" layout-align="start center" flex>
+    <button mat-icon-button tdLayoutNavListOpen [hideWhenOpened]="true">
+      <mat-icon>arrow_back</mat-icon>
+      <span>Administración</span>
+    </button>
+    <span flex></span>
+    <a *ngFor="let menu of navMenu" mat-icon-button matTooltip="{{menu.title}}" [routerLink]="[ menu.link ]">
+      <mat-icon>{{menu.icon}}</mat-icon>
+    </a>
+  </div>
+  <mat-nav-list td-sidenav-content [tdLayoutNavListClose]="!media.query('gt-sm')">
     <ng-template let-item let-last="last" ngFor [ngForOf]="navmenu">
-      <a mat-list-item [routerLink]="[item.route]">
-        <mat-icon matListIcon>{{item.icon}}</mat-icon> {{item.title}}
+      <a mat-list-item>
+        <mat-icon matListAvatar>{{item.icon}}</mat-icon>
+        <h3 matLine> {{item.title}} </h3>
+        <p matLine> {{item.description}} </p>
       </a>
+      <mat-divider matInset *ngIf="!last"></mat-divider>
     </ng-template>
   </mat-nav-list>
-  <mat-toolbar>
-    <div layout="row" layout-align="start center" flex>
-      <button mat-icon-button tdLayoutManageListOpen [hideWhenOpened]="true">
-        <mat-icon>arrow_back</mat-icon>
-      </button>
-      <span tdLayoutManageListOpen [hideWhenOpened]="true">Administración</span>
-      <span flex></span>
-      <button mat-icon-button>
-        <mat-icon>settings</mat-icon>
-      </button>
-    </div>
-  </mat-toolbar>
-  <router-outlet></router-outlet>
+  <div tdMediaToggle="gt-xs" [mediaClasses]="['push-sm']">
+    <router-outlet></router-outlet>
+  </div>
   <td-layout-footer-inner>
     Optional inner footer
   </td-layout-footer-inner>
-</td-layout-manage-list>
+  <td-layout-footer>
+    <div layout="row" layout-align="start center">
+      <span class="mat-caption">Copyright &copy; 2017 Teradata. All rights reserved</span>
+    </div>
+  </td-layout-footer>
+</td-layout-nav-list>

@@ -29,6 +29,8 @@ import {
   MatTooltipModule
 } from "@angular/material";
 
+import { MenusService } from "../services/menus.service";
+
 import { AppComponent } from './app.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { IngresoComponent } from './ingreso/ingreso.component';
@@ -80,7 +82,7 @@ import { AlcancesComponent } from './administracion/alcances/alcances.component'
     MatMenuModule,
     MatTooltipModule
   ],
-  providers: [ TdMediaService, TdLayoutManageListToggleDirective ],
+  providers: [ TdMediaService, TdLayoutManageListToggleDirective, MenusService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

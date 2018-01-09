@@ -1,5 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { TdMediaService } from '@covalent/core';
+import { MenusService } from "../services/menus.service";
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,13 @@ import { TdMediaService } from '@covalent/core';
 })
 export class AppComponent implements AfterViewInit {
 
-  constructor(public media: TdMediaService) {}
+  public navMenu = [];
+  constructor(
+    public media: TdMediaService,
+    public _menusService: MenusService
+  ) {
+    this.navMenu = this._menusService.getMenu();
+  }
 
   ngAfterViewInit(): void {
  

@@ -1,14 +1,32 @@
-<td-layout-card-over>
-  <mat-card-title>Módulo Estatal de Registro del Servicio Profesional Docente</mat-card-title>
-  <mat-card-subtitle>Instituto de Educación de Aguascalientes</mat-card-subtitle>
-  <mat-divider></mat-divider>
-  <mat-card-content>
-    <p>Bienvenido(a) al Módulo Estatal de Registro del Servicio Profesional Docente.</p>
-    <p>Para ingresar al Módulo se requiere contar con cuenta institucional @iea.edu.mx y que dicha cuenta esté habilitada con el o los perfiles necesarios para operar el módulo.</p>
-    <p>Si requiere contar con acceso al módulo contacte directamente con la Dirección del Servicio Profesional Docente del Instituto de Educación de Aguascalientes.</p>    
-    <a mat-raised-button color="primary" id="googleBtn">Acceso Institucional</a>
-    <a (click)="sumar()" mat-button color="primary">Sumar</a>
-    {{ usuario_inst | json }}
-    {{ suma }}
-  </mat-card-content>
-</td-layout-card-over>
+<td-layout-nav>
+  <div td-toolbar-content layout="row" layout-align="start center" flex>
+    <button mat-icon-button td-menu-button tdLayoutToggle>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="cursor-pointer">Servicio Profesional Docente</span>
+    <span flex></span>
+    <a *ngFor="let menu of navMenu" mat-icon-button matTooltip="{{menu.title}}" [routerLink]="[ menu.link ]">
+      <mat-icon>{{menu.icon}}</mat-icon>
+    </a>
+  </div>
+  <td-layout-card-over>
+    <mat-card-title>Módulo Estatal de Registro del Servicio Profesional Docente</mat-card-title>
+    <mat-card-subtitle>Instituto de Educación de Aguascalientes</mat-card-subtitle>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <p>Bienvenido(a) al Módulo Estatal de Registro del Servicio Profesional Docente.</p>
+      <p>Para ingresar al Módulo se requiere contar con cuenta institucional @iea.edu.mx y que dicha cuenta esté habilitada
+        con el o los perfiles necesarios para operar el módulo.</p>
+      <p>Si requiere contar con acceso al módulo contacte directamente con la Dirección del Servicio Profesional Docente del
+        Instituto de Educación de Aguascalientes.</p>
+      <a mat-raised-button color="primary" id="googleBtn">Acceso Institucional</a>
+      <a (click)="sumar()" mat-button color="primary">Sumar</a>
+      {{ usuario_inst | json }} {{ suma }}
+    </mat-card-content>
+  </td-layout-card-over>
+  <td-layout-footer>
+    <div layout="row" layout-align="start center">
+      <span class="md-caption">Copyright &copy; 2017 IEA. Derechos Reservados</span>
+    </div>
+  </td-layout-footer>
+</td-layout-nav>
