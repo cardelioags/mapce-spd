@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { TdMediaService } from '@covalent/core';
+import { MenusService } from "../../services/menus.service";
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -11,36 +12,45 @@ import { TdMediaService } from '@covalent/core';
 export class DesempenoComponent implements AfterViewInit {
 
  
-  navmenu: Object[] = [{
-      icon: 'looks_one',
-      route: '.',
-      title: 'First item',
-      description: 'Item description',
-    }, {
-      icon: 'looks_two',
-      route: '.',
-      title: 'Second item',
-      description: 'Item description',
-    }, {
-      icon: 'looks_3',
-      route: '.',
-      title: 'Third item',
-      description: 'Item description',
-    }, {
-      icon: 'looks_4',
-      route: '.',
-      title: 'Fourth item',
-      description: 'Item description',
-    }, {
-      icon: 'looks_5',
-      route: '.',
-      title: 'Fifth item',
-      description: 'Item description',
+  navMenu = [];
+  submenuNav = [
+    {
+      icon: 'arrow_back',
+      title: 'Desempeño',
+      description: 'Panel principal de Desempeño'
     },
+    {
+      icon: 'people',
+      title: 'Proceso de Selección',
+      description: 'Administrar el registro de personal'
+    },
+    {
+      icon: 'face',
+      title: 'Personal Evaluado',
+      description: 'Administración de Cuentas de Usuarios'
+    },
+    {
+      icon: 'verified_user',
+      title: 'Incidencias',
+      description: 'Administración de roles'
+    },
+    {
+      icon: 'done_all',
+      title: 'Material de Apoyo',
+      description: 'Administra las opciones de menus y aplicación'
+    },
+    {
+      icon: 'view_list',
+      title: 'Normateca',
+      description: 'Define y administra alcances para los roles'
+    },
+ 
   ];
 
   constructor(private _changeDetectorRef: ChangeDetectorRef,
-              public media: TdMediaService) {}
+    public media: TdMediaService, public _menusService: MenusService) {
+      this.navMenu = this._menusService.getMenu();
+    }
 
   ngAfterViewInit(): void {
     // broadcast to all listener observables when loading the page
