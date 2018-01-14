@@ -1,11 +1,15 @@
 <div layout-gt-sm="row" tdMediaToggle="gt-xs" [mediaClasses]="['push-sm']">
   <div flex-gt-sm="60">
     <mat-card>
-      <mat-card-title>Products Sales</mat-card-title>
-      <mat-card-subtitle>usage stats for our products</mat-card-subtitle>
+      <mat-card-title>Menú de Administración</mat-card-title>
+      <mat-card-subtitle>Acceso rápido para administrar:</mat-card-subtitle>
       <mat-divider></mat-divider>
       <mat-card-content>
-        card content
+        <mat-list dense>
+          <mat-list-item *ngFor="let menu of adminMenu">
+            <a href="/">{{menu.title}}</a>
+          </mat-list-item>
+        </mat-list>
       </mat-card-content>
       <mat-divider></mat-divider>
       <mat-card-actions>
@@ -15,7 +19,7 @@
       </mat-card-actions>
     </mat-card>
     <mat-card>
-      <mat-card-title>Customer Activity</mat-card-title>
+      <mat-card-title>Actividad Reciente</mat-card-title>
       <mat-card-subtitle>Recent activity from select members</mat-card-subtitle>
       <mat-divider></mat-divider>
       <mat-card-content>

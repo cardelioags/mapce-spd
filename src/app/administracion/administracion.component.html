@@ -17,8 +17,8 @@
     </a>
   </div>
   <mat-nav-list td-sidenav-content [tdLayoutNavListClose]="!media.query('gt-sm')">
-    <ng-template let-submenu let-last="last" ngFor [ngForOf]="submenuNav">
-      <a mat-list-item>
+    <ng-template let-submenu let-last="last" ngFor [ngForOf]="subMenuNav">
+      <a mat-list-item [routerLink]="[ submenu.link ]">
         <mat-icon color="warning" matListAvatar>{{submenu.icon}}</mat-icon>
         <h3 matLine> {{submenu.title}} </h3>
         <p matLine> {{submenu.description}} </p>
