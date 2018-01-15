@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, AfterViewInit} from '@angular/core';
 import { TdMediaService } from '@covalent/core';
 import { MenusService } from "../../../services/menus.service";
 import { MenuPositionX } from '@angular/material/menu/typings/menu-positions';
@@ -12,12 +12,13 @@ export class MainAdministracionComponent implements AfterViewInit {
 
   adminMenu = [];
 
-  constructor(private _changeDetectorRef: ChangeDetectorRef,
+  constructor(
     private _menu : MenusService,
-    public media: TdMediaService) { }
+    public media: TdMediaService) { 
+      this.adminMenu = this._menu.getAdminMenu();
+    }
     
     ngAfterViewInit(): void {
       this.media.broadcast();
-      this.adminMenu = this._menu.getAdminMenu();
     }
 }

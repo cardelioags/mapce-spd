@@ -5,11 +5,16 @@
       <mat-card-subtitle>Acceso rápido para administrar:</mat-card-subtitle>
       <mat-divider></mat-divider>
       <mat-card-content>
-        <mat-list dense>
-          <mat-list-item *ngFor="let menu of adminMenu">
-            <a href="/">{{menu.title}}</a>
-          </mat-list-item>
-        </mat-list>
+        <mat-grid-list cols="3" rowHeight="fit" [style.height]="'350px'">
+          <a style="cursor:pointer;">
+            <mat-grid-tile *ngFor="let menu of adminMenu" [colspan]="1" [rowspan]="1" class="bgc-blue-grey-900" [routerLink]="[menu.link]">
+              <mat-icon class="mat-36" style="color:rgb(141, 141, 141);">{{menu.icon}}</mat-icon>
+              <mat-grid-tile-footer>
+                {{menu.title}}
+              </mat-grid-tile-footer>
+            </mat-grid-tile>
+          </a>
+        </mat-grid-list>
       </mat-card-content>
       <mat-divider></mat-divider>
       <mat-card-actions>
@@ -35,7 +40,7 @@
   </div>
   <div flex-gt-sm="40">
     <mat-card>
-      <mat-card-title>Alerts</mat-card-title>
+      <mat-card-title>Alertas</mat-card-title>
       <mat-card-subtitle>Items requiring attention</mat-card-subtitle>
       <mat-divider></mat-divider>
       <mat-card-content>

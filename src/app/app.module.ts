@@ -21,7 +21,8 @@ import {
   MatButtonModule,
   MatCardModule,
   MatMenuModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatGridListModule
 } from "@angular/material";
 
 import { MenusService } from "../services/menus.service";
@@ -75,7 +76,8 @@ import { AlcancesComponent } from './administracion/alcances/alcances.component'
     MatButtonModule,
     MatCardModule,
     MatMenuModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatGridListModule
   ],
   providers: [ TdMediaService, MenusService ],
   bootstrap: [ AppComponent ]
