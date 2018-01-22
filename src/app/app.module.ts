@@ -11,6 +11,11 @@ import {
   CovalentStepsModule,
   CovalentMediaModule,
   TdMediaService,
+  TdDataTableService,
+  CovalentFileModule,
+  CovalentDataTableModule,
+  CovalentPagingModule,
+  CovalentSearchModule,
 } from "@covalent/core";
 
 import { 
@@ -22,7 +27,9 @@ import {
   MatCardModule,
   MatMenuModule,
   MatTooltipModule,
-  MatGridListModule
+  MatGridListModule,
+  MatOptionModule,
+  MatSelectModule
 } from "@angular/material";
 
 import { MenusService } from "../services/menus.service";
@@ -69,6 +76,10 @@ import { AlcancesComponent } from './administracion/alcances/alcances.component'
     CovalentLayoutModule,
     CovalentStepsModule,
     CovalentMediaModule,
+    CovalentFileModule,
+    CovalentDataTableModule,
+    CovalentPagingModule,
+    CovalentSearchModule,
     MatIconModule,
     MatListModule,
     MatSidenavModule,
@@ -77,9 +88,11 @@ import { AlcancesComponent } from './administracion/alcances/alcances.component'
     MatCardModule,
     MatMenuModule,
     MatTooltipModule,
-    MatGridListModule
+    MatGridListModule,
+    MatOptionModule,
+    MatSelectModule
   ],
-  providers: [ TdMediaService, MenusService ],
+  providers: [ TdMediaService, MenusService, TdDataTableService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
