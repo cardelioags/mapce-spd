@@ -24,4 +24,4 @@ var PersonaSchema = new Schema({
     collection: 'personas'
 });
 
-module.exports('Persona', PersonaSchema);
+module.exports = mongoose.model('Persona', PersonaSchema);

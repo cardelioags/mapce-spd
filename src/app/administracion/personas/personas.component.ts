@@ -1,16 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { TdDataTableService, TdDataTableSortingOrder, ITdDataTableSortChangeEvent, ITdDataTableColumn } from '@covalent/core';
 import { IPageChangeEvent } from '@covalent/core';
+import { PersonasService } from "../../../services/personas.service";
 import * as XLSX from 'xlsx';
+
 
 @Component({
   selector: 'app-personas',
   templateUrl: './personas.component.html',
-  styleUrls: ['./personas.component.css']
+  styleUrls: ['./personas.component.css'],
+  providers: [PersonasService]
 })
 export class PersonasComponent implements OnInit {
   public data: any = [];
   public files: any;
+  public testData = {mensaje: 'prueba de carga'};
  
   selectEvent($e) {
     console.log($e);
@@ -70,7 +74,10 @@ export class PersonasComponent implements OnInit {
   selectedRows: any[] = [];
   sortOrder: TdDataTableSortingOrder = TdDataTableSortingOrder.Descending;
 
-  constructor(private _dataTableService: TdDataTableService) { }
+  constructor(
+    private _dataTableService: TdDataTableService,
+    private _personas: PersonasService
+  ) { }
 
   ngOnInit(): void {
     this.filter();
@@ -113,6 +120,12 @@ export class PersonasComponent implements OnInit {
     //newData = this._dataTableService.sortData(newData, this.sortBy, this.sortOrder);
     newData = this._dataTableService.pageData(newData, this.fromRow, this.currentPage * this.pageSize);
     this.filteredData = newData;
+  }
+
+  pruebaCarga(){
+    this._personas.carga(this.testData).subscribe(res =>{
+      console.log(res);
+    });
   }
 
 }
