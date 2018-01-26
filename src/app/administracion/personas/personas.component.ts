@@ -13,8 +13,10 @@ import * as XLSX from 'xlsx';
 })
 export class PersonasComponent implements OnInit {
   public data: any = [];
+  public contNuevos: Number = 0;
+  public contActualizados: Number = 0;
   public files: any;
-  public testData = {mensaje: 'prueba de carga'};
+  public testData = {curp: 'CARD830331QPA', nombre: "DAVID OMAR"};
  
   selectEvent($e) {
     console.log($e);
@@ -123,8 +125,8 @@ export class PersonasComponent implements OnInit {
   }
 
   pruebaCarga(){
-    this._personas.carga(this.testData).subscribe(res =>{
-      console.log(res);
+    this._personas.carga(this.data).subscribe(res =>{
+        console.log(res)
     });
   }
 

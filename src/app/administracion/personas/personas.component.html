@@ -9,6 +9,7 @@
         <a mat-raised-button (click)="pruebaCarga()">Prueba de envío de datos</a>
 
         <input type="file" (change)="onFileChange($event)" multiple="false" />
+        <span>{{"Registros actualizados "+contActualizados}}</span>
 
         <div layout="row" layout-align="start center" class="pad-left-sm pad-right-sm">
           <span *ngIf="!searchBox.searchVisible" class="push-left-sm">

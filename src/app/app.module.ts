@@ -17,6 +17,8 @@ import {
   CovalentPagingModule,
   CovalentSearchModule,
 } from "@covalent/core";
+//import { TdDialogService } from "@covalent/core/dialogs";
+
 
 import { 
   MatIconModule,
@@ -92,7 +94,7 @@ import { AlcancesComponent } from './administracion/alcances/alcances.component'
     MatOptionModule,
     MatSelectModule
   ],
-  providers: [ TdMediaService, MenusService, TdDataTableService ],
+  providers: [ TdMediaService, MenusService, TdDataTableService],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
