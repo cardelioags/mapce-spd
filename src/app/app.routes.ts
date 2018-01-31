@@ -11,6 +11,10 @@ import { FormacionContinuaComponent } from "./formacion-continua/formacion-conti
 import { AdministracionComponent } from "./administracion/administracion.component"
 import { MainAdministracionComponent } from "./administracion/main-administracion/main-administracion.component"
 import { PersonasComponent } from './administracion/personas/personas.component';
+import { UsuariosComponent } from './administracion/usuarios/usuarios.component';
+import { RolesComponent } from './administracion/roles/roles.component';
+import { OpcionesComponent } from './administracion/opciones/opciones.component';
+import { AlcancesComponent } from './administracion/alcances/alcances.component';
 
 
 const routes: Routes = [
@@ -24,7 +28,11 @@ const routes: Routes = [
   {
     path: 'administracion',  component: AdministracionComponent, children: [
       {path: '', component: MainAdministracionComponent},
-      {path: 'personas', component: PersonasComponent}
+      {path: 'personas', component: PersonasComponent},
+      {path: 'usuarios', component: UsuariosComponent},
+      {path: 'roles', component: RolesComponent},
+      {path: 'opciones', component: OpcionesComponent},
+      {path: 'alcances', component: AlcancesComponent},
     ]
   }
 

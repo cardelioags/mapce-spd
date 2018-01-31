@@ -57,25 +57,25 @@ export class MenusService {
           icon: 'face',
           title: 'Usuarios',
           description: 'Administración de Cuentas de Usuarios',
-          link: '/administracion'
+          link: '/administracion/usuarios'
         },
         {
           icon: 'verified_user',
           title: 'Roles',
           description: 'Administración de roles',
-          link: '/administracion'
+          link: '/administracion/roles'
         },
         {
           icon: 'done_all',
           title: 'Opciones',
           description: 'Administra las opciones de menus y aplicación',
-          link: '/administracion'
+          link: '/administracion/opciones'
         },
         {
           icon: 'view_list',
           title: 'Alcances',
           description: 'Define y administra alcances para los roles',
-          link: '/administracion'
+          link: '/administracion/alcances'
         },
      
       ];
