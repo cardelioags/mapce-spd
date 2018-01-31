@@ -15,27 +15,30 @@ router.route('/personas/carga')
   .post((req, res) => {
     var cont = 0;
     console.log(req.body.length);
-    for (let i = 0; i < req.body.length; i++) {
-      Persona.bulkWrite({
-        updateOne: {
-          filter: {curp: req.body[i].curp},
-          update: req.body[i],
-          options: {upsert: true}
-        }
-      }).then(result => {
-        console.log(result);
-      })
-    }
-    /*Persona.collection.insertMany(req.body,{ordered: false},(result)=>{
-        console.log(result);
-    })
-    /*for (let i = 0; i < req.body.length; i++) {
-      bulk.find({curp: req.body[i].curp}).update({curp: req.body[i].curp}, { $set: req.body[i]}, {upsert: true})
-      console.log(i)
-    }*/
-    console.log(cont)
-    res.json({
-      cont: cont
-    });
+    /*Persona.insertMany(req.body, { ordered: false }).then(
+      (result) => { res.json(result) },
+      (err) => { res.json(err) }
+    );*/
+    for (let i = 0; i < req.body.length; i++)
+      Persona.collection.bulkWrite([
+        {
+          updateOne: {
+            filter: { curp: req.body[i].curp },
+            update: {
+                curp: req.body[i].curp,
+                rfc: req.body[i].rfc,
+                nombre: req.body[i].nombre,
+                prim_apell: req.body[i].prim_apell,
+                segu_apell: req.body[i].segu_apell,
+                prim_apell: req.body[i].prim_apell,
+              }
+            ,
+            upsert: true
+          }
+        }]).then(
+        (result) => { },
+        (err) => { console.log(err) }
+        )
+    res.send(200);
   })
 module.exports = router;

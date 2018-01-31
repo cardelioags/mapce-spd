@@ -1,12 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { RouterModule } from "@angular/router";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { FormsModule } from "@angular/forms";
-import { AppRoutingModule } from "./app.routes";
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
 
-import { 
+import {
   CovalentLayoutModule,
   CovalentStepsModule,
   CovalentMediaModule,
@@ -16,11 +16,11 @@ import {
   CovalentDataTableModule,
   CovalentPagingModule,
   CovalentSearchModule,
-} from "@covalent/core";
-//import { TdDialogService } from "@covalent/core/dialogs";
+} from '@covalent/core';
+// import { TdDialogService } from "@covalent/core/dialogs";
 
 
-import { 
+import {
   MatIconModule,
   MatListModule,
   MatSidenavModule,
@@ -31,10 +31,13 @@ import {
   MatTooltipModule,
   MatGridListModule,
   MatOptionModule,
-  MatSelectModule
-} from "@angular/material";
+  MatSelectModule,
+  MatInputModule,
+  MatTabsModule,
+  MatExpansionModule,
+} from '@angular/material';
 
-import { MenusService } from "../services/menus.service";
+import { MenusService } from '../services/menus.service';
 
 import { AppComponent } from './app.component';
 import { PrincipalComponent } from './principal/principal.component';
@@ -49,7 +52,11 @@ import { PersonasComponent } from './administracion/personas/personas.component'
 import { UsuariosComponent } from './administracion/usuarios/usuarios.component';
 import { RolesComponent } from './administracion/roles/roles.component';
 import { OpcionesComponent } from './administracion/opciones/opciones.component';
-import { AlcancesComponent } from './administracion/alcances/alcances.component'
+import { AlcancesComponent } from './administracion/alcances/alcances.component';
+import { NuevaPersonaComponent } from './administracion/personas/tabs/nueva-persona/nueva-persona.component';
+import { EditarPersonaComponent } from './administracion/personas/tabs/editar-persona/editar-persona.component';
+import { LayoutPersonaComponent } from './administracion/personas/tabs/layout-persona/layout-persona.component';
+import { BuscarPersonaComponent } from './administracion/personas/tabs/buscar-persona/buscar-persona.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +74,10 @@ import { AlcancesComponent } from './administracion/alcances/alcances.component'
     RolesComponent,
     OpcionesComponent,
     AlcancesComponent,
+    NuevaPersonaComponent,
+    EditarPersonaComponent,
+    LayoutPersonaComponent,
+    BuscarPersonaComponent,
   ],
   imports: [
     BrowserModule,
@@ -92,9 +103,13 @@ import { AlcancesComponent } from './administracion/alcances/alcances.component'
     MatTooltipModule,
     MatGridListModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatInputModule,
+    MatTabsModule,
+    MatExpansionModule
   ],
   providers: [ TdMediaService, MenusService, TdDataTableService],
-  bootstrap: [ AppComponent ]
+  bootstrap: [ AppComponent ],
+  entryComponents: [LayoutPersonaComponent],
 })
 export class AppModule { }
