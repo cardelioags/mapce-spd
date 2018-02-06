@@ -10,12 +10,12 @@ import { PersonasService } from '../../../../../services/personas.service';
 import * as XLSX from 'xlsx';
 
 @Component({
-  selector: 'app-layout-persona',
-  templateUrl: './layout-persona.component.html',
-  styleUrls: ['./layout-persona.component.css'],
+  selector: 'app-layout-usuario',
+  templateUrl: './layout-usuario.component.html',
+  styleUrls: ['./layout-usuario.component.css'],
   providers: [PersonasService]
 })
-export class LayoutPersonaComponent implements OnInit {
+export class LayoutUsuarioComponent implements OnInit {
   public data: any = [];
   public contNuevos: Number = 0;
   public contActualizados: Number = 0;

@@ -53,10 +53,16 @@ import { UsuariosComponent } from './administracion/usuarios/usuarios.component'
 import { RolesComponent } from './administracion/roles/roles.component';
 import { OpcionesComponent } from './administracion/opciones/opciones.component';
 import { AlcancesComponent } from './administracion/alcances/alcances.component';
+
 import { NuevaPersonaComponent } from './administracion/personas/tabs/nueva-persona/nueva-persona.component';
 import { EditarPersonaComponent } from './administracion/personas/tabs/editar-persona/editar-persona.component';
 import { LayoutPersonaComponent } from './administracion/personas/tabs/layout-persona/layout-persona.component';
 import { BuscarPersonaComponent } from './administracion/personas/tabs/buscar-persona/buscar-persona.component';
+
+import { NuevaUsuarioComponent } from "./administracion/usuarios/tabs/nueva-usuario/nueva-usuario.component";
+import { BuscarUsuarioComponent } from "./administracion/usuarios/tabs/buscar-usuario/buscar-usuario.component";
+import { EditarUsuarioComponent } from "./administracion/usuarios/tabs/editar-usuario/editar-usuario.component";
+import { LayoutUsuarioComponent } from "./administracion/usuarios/tabs/layout-usuario/layout-usuario.component";
 
 @NgModule({
   declarations: [
@@ -78,6 +84,10 @@ import { BuscarPersonaComponent } from './administracion/personas/tabs/buscar-pe
     EditarPersonaComponent,
     LayoutPersonaComponent,
     BuscarPersonaComponent,
+    NuevaUsuarioComponent,
+    EditarUsuarioComponent,
+    LayoutUsuarioComponent,
+    BuscarUsuarioComponent,
   ],
   imports: [
     BrowserModule,
