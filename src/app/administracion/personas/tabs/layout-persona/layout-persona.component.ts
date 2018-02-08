@@ -6,7 +6,7 @@ import {
   ITdDataTableColumn
 } from '@covalent/core';
 import { IPageChangeEvent } from '@covalent/core';
-import { PersonasService } from '../../../../../services/personas.service';
+import { PersonasService } from '../../../../services/personas.service';
 import * as XLSX from 'xlsx';
 
 @Component({

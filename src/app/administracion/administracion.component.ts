@@ -1,9 +1,9 @@
 import { Component, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { TdMediaService } from '@covalent/core';
-import { MenusService } from '../../services/menus.service'
+import { MenusService } from '../services/menus.service';
 
 @Component({
-  //changeDetection: ChangeDetectionStrategy.OnPush,
+  // changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-administracion',
   styleUrls: ['./administracion.component.css'],
   templateUrl: './administracion.component.html',
@@ -12,14 +12,12 @@ import { MenusService } from '../../services/menus.service'
 export class AdministracionComponent implements AfterViewInit {
 
   navMenu = [];
-  subMenuNav = [] 
+  subMenuNav = [];
   constructor(private _changeDetectorRef: ChangeDetectorRef,
               public media: TdMediaService, public _menusService: MenusService) {
                 this.navMenu = this._menusService.getMenu();
                 this.subMenuNav = this._menusService.getAdminMenu();
               }
-  
-  
   ngAfterViewInit(): void {
     // broadcast to all listener observables when loading the page
     setTimeout(() => { // workaround since MatSidenav has issues redrawing at the beggining
@@ -27,5 +25,4 @@ export class AdministracionComponent implements AfterViewInit {
       this._changeDetectorRef.detectChanges();
     });
   }
-
 }

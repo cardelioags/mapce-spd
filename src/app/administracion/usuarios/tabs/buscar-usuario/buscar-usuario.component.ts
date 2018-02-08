@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ITdDataTableColumn, TdDataTableSortingOrder, ITdDataTableSortChangeEvent, TdDataTableService, IPageChangeEvent } from '@covalent/core';
-import { PersonasService } from "../../../../../services/personas.service";
+import {
+  ITdDataTableColumn,
+  TdDataTableSortingOrder,
+  ITdDataTableSortChangeEvent,
+  TdDataTableService,
+  IPageChangeEvent
+} from '@covalent/core';
+import { PersonasService } from '../../../../services/personas.service';
 
 @Component({
   selector: 'app-buscar-usuario',
@@ -21,11 +27,11 @@ export class BuscarUsuarioComponent implements OnInit {
   filteredTotal: number = this.data.length;
 
   heightTable = 100;
-  searchTerm: string = '';
-  fromRow: number = 1;
-  currentPage: number = 1;
-  pageSize: number = 50;
-  sortBy: string = 'curp';
+  searchTerm = '';
+  fromRow = 1;
+  currentPage = 1;
+  pageSize = 50;
+  sortBy = 'curp';
   selectable = true;
   selectedRows: any[] = [];
   multiple = true;
@@ -44,7 +50,7 @@ export class BuscarUsuarioComponent implements OnInit {
         this.filter();
         this.heightTable = 500;
       }
-    )
+    );
   }
 
   sort(sortEvent: ITdDataTableSortChangeEvent): void {
@@ -66,13 +72,13 @@ export class BuscarUsuarioComponent implements OnInit {
   }
 
   showAlert(event: any): void {
-    let row: any = event.row;
+    const row: any = event.row;
     // .. do something with event.row
   }
 
   filter(): void {
     let newData: any[] = this.data;
-    let excludedColumns: string[] = this.columns
+    const excludedColumns: string[] = this.columns
       .filter((column: ITdDataTableColumn) => {
         return ((column.filter === undefined && column.hidden === true) ||
           (column.filter !== undefined && column.filter === false));

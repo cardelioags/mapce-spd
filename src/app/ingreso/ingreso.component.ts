@@ -1,8 +1,6 @@
 import { Component, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { TdMediaService } from '@covalent/core';
-import { MenusService } from "../../services/menus.service";
-
-
+import { MenusService } from './../services/menus.service';
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-ingreso',
@@ -11,8 +9,6 @@ import { MenusService } from "../../services/menus.service";
   animations: [],
 })
 export class IngresoComponent implements AfterViewInit {
-
- 
   navMenu = [];
   submenuNav = [
     {
@@ -45,7 +41,6 @@ export class IngresoComponent implements AfterViewInit {
       title: 'Normateca',
       description: 'Define y administra alcances para los roles'
     },
- 
   ];
 
   constructor(private _changeDetectorRef: ChangeDetectorRef,
@@ -60,5 +55,4 @@ export class IngresoComponent implements AfterViewInit {
       this._changeDetectorRef.detectChanges();
     });
   }
-
 }
