@@ -3,12 +3,12 @@ import { ITdDataTableColumn, TdDataTableSortingOrder, ITdDataTableSortChangeEven
 import { PersonasService } from "../../../../../services/personas.service";
 
 @Component({
-  selector: 'app-buscar-persona',
-  templateUrl: './buscar-persona.component.html',
-  styleUrls: ['./buscar-persona.component.css'],
+  selector: 'app-buscar-usuario',
+  templateUrl: './buscar-usuario.component.html',
+  styleUrls: ['./buscar-usuario.component.css'],
   providers: [PersonasService]
 })
-export class BuscarPersonaComponent implements OnInit {
+export class BuscarUsuarioComponent implements OnInit {
   columns: ITdDataTableColumn[] = [
     { name: 'curp', label: 'CURP', sortable: true, width: 200 },
     { name: 'fullname', label: 'Nombre', filter: true},

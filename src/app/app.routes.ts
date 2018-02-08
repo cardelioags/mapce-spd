@@ -12,6 +12,9 @@ import { AdministracionComponent } from './administracion/administracion.compone
 import { MainAdministracionComponent } from './administracion/main-administracion/main-administracion.component';
 import { PersonasComponent } from './administracion/personas/personas.component';
 import { RolesComponent } from './administracion/roles/roles.component';
+import { UsuariosComponent } from './administracion/usuarios/usuarios.component';
+import { OpcionesComponent } from './administracion/opciones/opciones.component';
+import { AlcancesComponent } from './administracion/alcances/alcances.component';
 
 
 const routes: Routes = [
@@ -26,7 +29,11 @@ const routes: Routes = [
     path: 'administracion',  component: AdministracionComponent, children: [
       {path: '', component: MainAdministracionComponent},
       {path: 'personas', component: PersonasComponent},
-      {path: 'roles', component: RolesComponent}
+      {path: 'roles', component: RolesComponent},
+      {path: 'usuarios', component: UsuariosComponent},
+      {path: 'roles', component: RolesComponent},
+      {path: 'opciones', component: OpcionesComponent},
+      {path: 'alcances', component: AlcancesComponent},
     ]
   }
 

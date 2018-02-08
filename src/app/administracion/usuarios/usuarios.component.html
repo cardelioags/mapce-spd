@@ -1,3 +1,25 @@
-<p>
-  usuarios works!
-</p>
+<div layout-gt-sm="column" tdMediaToggle="gt-xs" [mediaClasses]="['push-sm']">
+  <div flex-gt-sm="40">
+      <mat-card>
+          <mat-card-content>
+              <mat-tab-group [disableRipple]="false">
+                  <mat-tab label="Buscar">
+                      <ng-template mat-tab-label>
+                          <mat-icon class="mat-18" matListAvatar>search</mat-icon> Buscar
+                      </ng-template>
+                      <app-buscar-usuario></app-buscar-usuario>
+                  </mat-tab>
+                  <mat-tab label="Nuevo">
+                      <app-nueva-usuario></app-nueva-usuario>
+                  </mat-tab>
+                  <mat-tab label="Editar">
+                      <app-editar-usuario></app-editar-usuario>
+                  </mat-tab>
+                  <mat-tab label="Carga Layout">
+                      <app-layout-usuario></app-layout-usuario>
+                  </mat-tab>
+              </mat-tab-group>
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>

@@ -12,8 +12,15 @@ const httpOptions = {
 export class PersonasService {
     constructor(private _http: HttpClient) { }
 
-    private url = "http://localhost:3000"
-    carga(dato): Observable <any> {
-        return this._http.post(`${this.url}/api/personas/carga`, dato, httpOptions);
+    private url = "http://localhost:3000";
+
+    getPersona(): Observable <any> {
+        return this._http.get(`${this.url}/api/personas/`)
+    }
+    addPersona(dato): Observable <any> {
+        return this._http.post(`${this.url}/api/personas/`, dato, httpOptions);
+    }
+    upsertPersona(dato): Observable <any> {
+        return this._http.put(`${this.url}/api/personas/`, dato, httpOptions);
     }
 }
