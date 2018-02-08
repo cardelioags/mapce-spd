@@ -37,7 +37,7 @@ import {
   MatExpansionModule,
 } from '@angular/material';
 
-import { MenusService } from '../services/menus.service';
+import { MenusService } from './services/menus.service';
 
 import { AppComponent } from './app.component';
 import { PrincipalComponent } from './principal/principal.component';
@@ -57,6 +57,7 @@ import { NuevaPersonaComponent } from './administracion/personas/tabs/nueva-pers
 import { EditarPersonaComponent } from './administracion/personas/tabs/editar-persona/editar-persona.component';
 import { LayoutPersonaComponent } from './administracion/personas/tabs/layout-persona/layout-persona.component';
 import { BuscarPersonaComponent } from './administracion/personas/tabs/buscar-persona/buscar-persona.component';
+import { NuevoRolComponent } from './administracion/roles/tabs/nuevo-rol/nuevo-rol.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import { BuscarPersonaComponent } from './administracion/personas/tabs/buscar-pe
     EditarPersonaComponent,
     LayoutPersonaComponent,
     BuscarPersonaComponent,
+    NuevoRolComponent,
   ],
   imports: [
     BrowserModule,

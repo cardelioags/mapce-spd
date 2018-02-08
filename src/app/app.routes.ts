@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AppComponent } from "./app.component";
-import { PrincipalComponent } from "./principal/principal.component";
-import { DesempenoComponent } from "./desempeno/desempeno.component";
-import { IngresoComponent } from "./ingreso/ingreso.component";
-import { PromocionComponent } from "./promocion/promocion.component";
-import { ReconocimientoComponent } from "./reconocimiento/reconocimiento.component";
-import { FormacionContinuaComponent } from "./formacion-continua/formacion-continua.component";
-import { AdministracionComponent } from "./administracion/administracion.component"
-import { MainAdministracionComponent } from "./administracion/main-administracion/main-administracion.component"
+import { AppComponent } from './app.component';
+import { PrincipalComponent } from './principal/principal.component';
+import { DesempenoComponent } from './desempeno/desempeno.component';
+import { IngresoComponent } from './ingreso/ingreso.component';
+import { PromocionComponent } from './promocion/promocion.component';
+import { ReconocimientoComponent } from './reconocimiento/reconocimiento.component';
+import { FormacionContinuaComponent } from './formacion-continua/formacion-continua.component';
+import { AdministracionComponent } from './administracion/administracion.component';
+import { MainAdministracionComponent } from './administracion/main-administracion/main-administracion.component';
 import { PersonasComponent } from './administracion/personas/personas.component';
+import { RolesComponent } from './administracion/roles/roles.component';
 
 
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
   {
     path: 'administracion',  component: AdministracionComponent, children: [
       {path: '', component: MainAdministracionComponent},
-      {path: 'personas', component: PersonasComponent}
+      {path: 'personas', component: PersonasComponent},
+      {path: 'roles', component: RolesComponent}
     ]
   }
 

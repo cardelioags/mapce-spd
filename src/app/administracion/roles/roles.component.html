@@ -1,3 +1,16 @@
-<p>
-  roles works!
-</p>
+<div layout-gt-sm="column" tdMediaToggle="gt-xs" [mediaClasses]="['push-sm']">
+    <div flex-gt-sm="40">
+        <mat-card>
+            <mat-card-content>
+                <mat-tab-group [disableRipple]="false">
+                    <mat-tab label="Nuevo">
+                        <app-nuevo-rol></app-nuevo-rol>
+                    </mat-tab>
+                    <mat-tab label="Editar Rol">
+                        <h3>La Edición del Rol</h3>
+                    </mat-tab>
+                </mat-tab-group>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

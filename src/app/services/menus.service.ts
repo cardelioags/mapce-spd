@@ -63,7 +63,7 @@ export class MenusService {
           icon: 'verified_user',
           title: 'Roles',
           description: 'Administración de roles',
-          link: '/administracion'
+          link: '/administracion/roles'
         },
         {
           icon: 'done_all',
