@@ -3,7 +3,6 @@ import { TdMediaService } from '@covalent/core';
 import { MenusService } from '../services/menus.service';
 
 @Component({
-  // changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-administracion',
   styleUrls: ['./administracion.component.css'],
   templateUrl: './administracion.component.html',

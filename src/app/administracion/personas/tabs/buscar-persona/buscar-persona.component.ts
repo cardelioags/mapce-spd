@@ -17,7 +17,8 @@ export class BuscarPersonaComponent implements OnInit {
   columns: ITdDataTableColumn[] = [
     { name: 'curp', label: 'CURP', sortable: true, width: 200 },
     { name: 'fullname', label: 'Nombre', filter: true},
-    { name: 'email', label: '', numeric: true },
+    { name: 'email', label: 'Correo' },
+    { name: 'rfc', label: 'RFC'}
   ];
 
   data: any[] = []; // see json data
@@ -34,6 +35,7 @@ export class BuscarPersonaComponent implements OnInit {
   selectable = true;
   selectedRows: any[] = [];
   multiple = true;
+  clickable = true;
   sortOrder: TdDataTableSortingOrder = TdDataTableSortingOrder.Descending;
 
   constructor(

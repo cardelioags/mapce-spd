@@ -28,7 +28,6 @@ export class PrincipalComponent implements AfterViewInit {
   public attachSignin(element) {
     this.auth2.attachClickHandler(element, {},
       (googleUser) => {
-
         let profile = googleUser.getBasicProfile();
         this.usuario_inst.token = googleUser.getAuthResponse().id_token;
         this.usuario_inst.id = profile.getId();
@@ -36,8 +35,6 @@ export class PrincipalComponent implements AfterViewInit {
         this.usuario_inst.imagen = profile.getImageUrl();
         this.usuario_inst.email = profile.getEmail();
         console.log(this.usuario_inst);
-
-
       }, (error) => {
         console.log(JSON.stringify(error, undefined, 2));
       });
@@ -51,9 +48,4 @@ export class PrincipalComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.googleInit();
   }
-
-  sumar(){
-    this.suma = this.suma+1
-  }
-
 }
