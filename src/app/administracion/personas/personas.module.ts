@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { BuscarPersonaComponent } from './tabs/buscar-persona/buscar-persona.component';
 import { EditarPersonaComponent } from './tabs/editar-persona/editar-persona.component';
 import { LayoutPersonaComponent } from './tabs/layout-persona/layout-persona.component';
@@ -16,7 +15,6 @@ import { SharedModule } from '../../shared/shared.module';
         PersonasComponent
     ],
     imports: [
-        CommonModule,
         SharedModule
     ],
     exports: [

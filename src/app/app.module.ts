@@ -30,6 +30,7 @@ import { AdministracionModule } from './administracion/administracion.module';
 import { UsuariosModule } from './administracion/usuarios/usuarios.module';
 import { RolesModule } from './administracion/roles/roles.module';
 import { PersonasModule } from './administracion/personas/personas.module';
+import { MainAdministracionComponent } from './administracion/main-administracion/main-administracion.component';
 
 @NgModule({
   declarations: [
@@ -48,8 +49,8 @@ import { PersonasModule } from './administracion/personas/personas.module';
     HttpClientModule,
     RouterModule,
     FormsModule,
-    AppRoutingModule,
     SharedModule,
+    AppRoutingModule,
     AdministracionModule,
   ],
   providers: [ TdMediaService, MenusService, TdDataTableService],
