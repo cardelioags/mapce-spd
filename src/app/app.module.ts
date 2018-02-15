@@ -7,35 +7,11 @@ import { AppRoutingModule } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
 
 import {
-  CovalentLayoutModule,
-  CovalentStepsModule,
-  CovalentMediaModule,
   TdMediaService,
   TdDataTableService,
-  CovalentFileModule,
-  CovalentDataTableModule,
-  CovalentPagingModule,
-  CovalentSearchModule,
 } from '@covalent/core';
-// import { TdDialogService } from "@covalent/core/dialogs";
 
 
-import {
-  MatIconModule,
-  MatListModule,
-  MatSidenavModule,
-  MatToolbarModule,
-  MatButtonModule,
-  MatCardModule,
-  MatMenuModule,
-  MatTooltipModule,
-  MatGridListModule,
-  MatOptionModule,
-  MatSelectModule,
-  MatInputModule,
-  MatTabsModule,
-  MatExpansionModule,
-} from '@angular/material';
 
 import { MenusService } from './services/menus.service';
 
@@ -47,23 +23,13 @@ import { DesempenoComponent } from './desempeno/desempeno.component';
 import { ReconocimientoComponent } from './reconocimiento/reconocimiento.component';
 import { FormacionContinuaComponent } from './formacion-continua/formacion-continua.component';
 import { AdministracionComponent } from './administracion/administracion.component';
-import { MainAdministracionComponent } from './administracion/main-administracion/main-administracion.component';
-import { PersonasComponent } from './administracion/personas/personas.component';
-import { UsuariosComponent } from './administracion/usuarios/usuarios.component';
-import { RolesComponent } from './administracion/roles/roles.component';
-import { OpcionesComponent } from './administracion/opciones/opciones.component';
 import { AlcancesComponent } from './administracion/alcances/alcances.component';
 
-import { NuevaPersonaComponent } from './administracion/personas/tabs/nueva-persona/nueva-persona.component';
-import { EditarPersonaComponent } from './administracion/personas/tabs/editar-persona/editar-persona.component';
-import { LayoutPersonaComponent } from './administracion/personas/tabs/layout-persona/layout-persona.component';
-import { BuscarPersonaComponent } from './administracion/personas/tabs/buscar-persona/buscar-persona.component';
-import { NuevoRolComponent } from './administracion/roles/tabs/nuevo-rol/nuevo-rol.component';
-
-import { NuevaUsuarioComponent } from "./administracion/usuarios/tabs/nueva-usuario/nueva-usuario.component";
-import { BuscarUsuarioComponent } from "./administracion/usuarios/tabs/buscar-usuario/buscar-usuario.component";
-import { EditarUsuarioComponent } from "./administracion/usuarios/tabs/editar-usuario/editar-usuario.component";
-import { LayoutUsuarioComponent } from "./administracion/usuarios/tabs/layout-usuario/layout-usuario.component";
+import { SharedModule } from './shared/shared.module';
+import { AdministracionModule } from './administracion/administracion.module';
+import { UsuariosModule } from './administracion/usuarios/usuarios.module';
+import { RolesModule } from './administracion/roles/roles.module';
+import { PersonasModule } from './administracion/personas/personas.module';
 
 @NgModule({
   declarations: [
@@ -75,21 +41,6 @@ import { LayoutUsuarioComponent } from "./administracion/usuarios/tabs/layout-us
     ReconocimientoComponent,
     FormacionContinuaComponent,
     AdministracionComponent,
-    MainAdministracionComponent,
-    PersonasComponent,
-    UsuariosComponent,
-    RolesComponent,
-    OpcionesComponent,
-    AlcancesComponent,
-    NuevaPersonaComponent,
-    EditarPersonaComponent,
-    LayoutPersonaComponent,
-    BuscarPersonaComponent,
-    NuevoRolComponent,
-    NuevaUsuarioComponent,
-    EditarUsuarioComponent,
-    LayoutUsuarioComponent,
-    BuscarUsuarioComponent,
   ],
   imports: [
     BrowserModule,
@@ -98,30 +49,10 @@ import { LayoutUsuarioComponent } from "./administracion/usuarios/tabs/layout-us
     RouterModule,
     FormsModule,
     AppRoutingModule,
-    CovalentLayoutModule,
-    CovalentStepsModule,
-    CovalentMediaModule,
-    CovalentFileModule,
-    CovalentDataTableModule,
-    CovalentPagingModule,
-    CovalentSearchModule,
-    MatIconModule,
-    MatListModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatCardModule,
-    MatMenuModule,
-    MatTooltipModule,
-    MatGridListModule,
-    MatOptionModule,
-    MatSelectModule,
-    MatInputModule,
-    MatTabsModule,
-    MatExpansionModule
+    SharedModule,
+    AdministracionModule,
   ],
   providers: [ TdMediaService, MenusService, TdDataTableService],
   bootstrap: [ AppComponent ],
-  entryComponents: [LayoutPersonaComponent],
 })
 export class AppModule { }
