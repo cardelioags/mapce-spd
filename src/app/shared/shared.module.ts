@@ -32,34 +32,12 @@ import {
     MatInputModule,
     MatTabsModule,
     MatExpansionModule,
+    MatDialogModule
   } from '@angular/material';
 
 @NgModule({
     declarations: [],
-    imports: [
-        CommonModule,
-        MatIconModule,
-        MatListModule,
-        MatSidenavModule,
-        MatToolbarModule,
-        MatButtonModule,
-        MatCardModule,
-        MatMenuModule,
-        MatTooltipModule,
-        MatGridListModule,
-        MatOptionModule,
-        MatSelectModule,
-        MatInputModule,
-        MatTabsModule,
-        MatExpansionModule,
-        CovalentLayoutModule,
-        CovalentStepsModule,
-        CovalentMediaModule,
-        CovalentFileModule,
-        CovalentDataTableModule,
-        CovalentPagingModule,
-        CovalentSearchModule,
-    ],
+    imports: [ ],
     exports: [
         CommonModule,
         RouterModule,
@@ -85,6 +63,7 @@ import {
         CovalentDataTableModule,
         CovalentPagingModule,
         CovalentSearchModule,
+        MatDialogModule
     ],
     providers: [],
 })

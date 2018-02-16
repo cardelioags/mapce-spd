@@ -1,9 +1,12 @@
+<button mat-mini-fab (click)="openDialogNuevaOpcion()" class="fab" matTooltip="Nueva Opción">
+    <mat-icon class="mat-18">add</mat-icon>
+</button>
 <div layout-gt-sm="row" tdMediaToggle="gt-xs" [mediaClasses]="['push-sm']">
     <div flex>
         <mat-card>
             <div layout="row" layout-align="start center" class="pad-left-sm pad-right-sm">
                 <span *ngIf="!searchBox.searchVisible" class="push-left-sm">
-                <span class="mat-title">Catálogo de Personal</span>
+                <span class="mat-title">Catálogo de Opciones</span>
                 </span>
                 <span *ngIf="!searchBox.searchVisible" class="push-left-sm">
                 <span *ngIf="selectedRows.length && selectable" class="mat-body-1">0 registro(s) seleccionados</span>

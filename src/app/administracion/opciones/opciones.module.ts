@@ -14,5 +14,6 @@ import { ModalesNuevoComponent } from './modales/modales.nuevo.component';
         ModalesNuevoComponent
     ],
     providers: [],
+    entryComponents: [ModalesNuevoComponent]
 })
 export class OpcionesModule {}

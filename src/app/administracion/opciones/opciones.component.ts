@@ -5,17 +5,21 @@ import {
   ITdDataTableSortChangeEvent,
   TdDataTableService,
   IPageChangeEvent } from '@covalent/core';
-import { PersonasService } from '../../services/personas.service';
+import { OpcionesService } from '../../services/opciones.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { ModalesNuevoComponent } from './modales/modales.nuevo.component';
+
+
 
 @Component({
   selector: 'app-opciones',
   templateUrl: './opciones.component.html',
   styleUrls: ['./opciones.component.css'],
-  providers: [PersonasService]
+  providers: [OpcionesService, MatDialog]
 })
 export class OpcionesComponent implements OnInit {
   columns: ITdDataTableColumn[] = [
-    { name: 'curp', label: 'CURP', sortable: true, width: 200 },
+    { name: 'id', label: 'ID', sortable: true, width: 200 },
     { name: 'fullname', label: 'Nombre', filter: true},
     { name: 'email', label: 'Correo' },
     { name: 'rfc', label: 'RFC'}
@@ -40,11 +44,22 @@ export class OpcionesComponent implements OnInit {
 
   constructor(
     private _dataTableService: TdDataTableService,
-    private _personas: PersonasService,
+    private _opciones: OpcionesService,
+    public _dialog: MatDialog
   ) { }
 
+  openDialogNuevaOpcion(): void {
+    const dialogRef = this._dialog.open(ModalesNuevoComponent, {
+      width: '700px',
+      data: 'Los datos a enviar'
+    });
+    dialogRef.afterClosed().subscribe( result => {
+      console.log('Se cerró el diálogo de Nueva Opción');
+    });
+  }
+
   ngOnInit(): void {
-    this._personas.getPersona().subscribe(
+    this._opciones.get(
       res => {
         this.data = res;
         console.log(res);
