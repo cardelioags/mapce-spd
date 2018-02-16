@@ -61,6 +61,7 @@ import {
         CovalentSearchModule,
     ],
     exports: [
+        CommonModule,
         RouterModule,
         FormsModule,
         MatIconModule,
