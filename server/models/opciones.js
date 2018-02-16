@@ -6,7 +6,9 @@ var OpcionSchema = new Schema({
     descripcion: String,
     clave: String,
     icono: String,
-    ruta: String
+    ruta: String,
+    depende: { type: Schema.Types.ObjectId, ref: this },
+    tipo: String,
 }, {
     collection: 'opciones'
 })
