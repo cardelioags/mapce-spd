@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 
 var OpcionSchema = new Schema({
     titulo: String,
-    clave: String,
+    descripcion: String,
     icono: String,
     ruta: String,
     depende: { type: Schema.Types.ObjectId, ref: this },

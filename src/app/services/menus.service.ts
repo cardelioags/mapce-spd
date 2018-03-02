@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
 export class MenusService {
     public navMenu = [
         {
-            link:'/principal',
-            icon:'home',
+            link: '/principal',
+            icon: 'home',
             title: 'Principal'
         },
         {
@@ -38,7 +38,7 @@ export class MenusService {
             icon: 'security',
             title: 'Administración'
         }
-    ]
+    ];
 
     adminMenu = [
         {
@@ -77,13 +77,18 @@ export class MenusService {
           description: 'Define y administra alcances para los roles',
           link: '/administracion/alcances'
         },
-     
+        {
+            icon: 'import_export',
+            title: 'Importador',
+            description: 'Carga de información mediante Layouts',
+            link: '/administracion/importador'
+        }
       ];
-    getMenu(){
+    getMenu() {
         return this.navMenu;
     }
 
-    getAdminMenu(){
+    getAdminMenu() {
         return this.adminMenu;
     }
 }

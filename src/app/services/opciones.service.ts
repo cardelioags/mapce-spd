@@ -7,13 +7,13 @@ export class OpcionesService {
         private _http: HttpClient
     ) {}
 
-    private apiUrl = '/api/opciones/';
+    private apiUrl = 'http://localhost:3000';
 
     get(dato) {
         if (dato) {
-            return this._http.get(this.apiUrl);
+            return this._http.get(this.apiUrl + '/api/opciones');
         } else {
-            return this._http.get(this.apiUrl +  `/${dato}`);         }
+            return this._http.get(this.apiUrl +  `/api/opciones/${dato}`);         }
     }
     post(dato) {
         return this._http.post(this.apiUrl, dato, {headers: {'content-type': 'application/json'}});

@@ -19,10 +19,12 @@ import { ModalesNuevoComponent } from './modales/modales.nuevo.component';
 })
 export class OpcionesComponent implements OnInit {
   columns: ITdDataTableColumn[] = [
-    { name: 'id', label: 'ID', sortable: true, width: 200 },
-    { name: 'fullname', label: 'Nombre', filter: true},
-    { name: 'email', label: 'Correo' },
-    { name: 'rfc', label: 'RFC'}
+    { name: 'titulo', label: 'Título', sortable: true, width: 200 },
+    { name: 'descripcion', label: 'Descripción', filter: true},
+    { name: 'icono', label: 'Ícono' },
+    { name: 'ruta', label: 'URL (Ruta)'},
+    { name: 'depende', label: 'Depende de'},
+    { name: 'tipo', label: 'Tipo de opción'},
   ];
 
   data: any[] = []; // see json data
@@ -35,7 +37,7 @@ export class OpcionesComponent implements OnInit {
   fromRow = 1;
   currentPage = 1;
   pageSize = 50;
-  sortBy = 'curp';
+  sortBy = 'titulo';
   selectable = true;
   selectedRows: any[] = [];
   multiple = true;

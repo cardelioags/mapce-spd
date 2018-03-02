@@ -8,10 +8,18 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
     mat-form-field {
       width: 100%
     }
-  `]
+  `],
+  providers: [  ]
 })
 export class ModalesNuevoComponent {
 
+  public tipos = [{
+    value: 'Menú'
+  }, {
+    value: 'Submenú'
+  }, {
+    value: 'Opción'
+  }];
   constructor(
     public dialogRef: MatDialogRef<ModalesNuevoComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any

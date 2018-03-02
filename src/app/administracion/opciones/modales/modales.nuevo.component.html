@@ -4,6 +4,9 @@
     <input matInput placeholder="Título de la Opción">
   </mat-form-field>
   <mat-form-field >
+    <input matInput placeholder="Descripción">
+  </mat-form-field>  
+  <mat-form-field >
     <input matInput placeholder="Icono (Material Design Icons)">
   </mat-form-field>
   <mat-form-field >
@@ -17,9 +20,9 @@
     </mat-select>
   </mat-form-field>
   <mat-form-field>
-    <mat-select placeholder="Favorite food">
-      <mat-option *ngFor="let tipo of tipos" [value]="tipos.value">
-        {{ tipos.value }}
+    <mat-select placeholder="Tipo">
+      <mat-option *ngFor="let tipo of tipos" [value]="tipo.value">
+        {{ tipo.value }}
       </mat-option>
     </mat-select>
   </mat-form-field>
