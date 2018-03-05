@@ -21,4 +21,7 @@ export class OpcionesService {
     del() {}
 
     put() {}
+    getSchema() {
+        return this._http.get(this.apiUrl + '/api/opciones/model');
+    }
 }

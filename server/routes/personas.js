@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const Persona = require('../models/personas');
+const db = require('../config/db')
 
 
 router.route('/personas')
@@ -46,5 +47,10 @@ router.route('/personas')
                 }
             )
         res.send(200);
-    })
+    });
+
+router.route('/personas/model')
+    .get((req, res) => {
+        res.json(Persona.schema.paths);
+    });
 module.exports = router;

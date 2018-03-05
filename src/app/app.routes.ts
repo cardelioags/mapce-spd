@@ -15,6 +15,7 @@ import { RolesComponent } from './administracion/roles/roles.component';
 import { UsuariosComponent } from './administracion/usuarios/usuarios.component';
 import { OpcionesComponent } from './administracion/opciones/opciones.component';
 import { AlcancesComponent } from './administracion/alcances/alcances.component';
+import { ImportadorComponent } from './administracion/importador/importador.component';
 
 
 const routes: Routes = [
@@ -34,6 +35,7 @@ const routes: Routes = [
       {path: 'roles', component: RolesComponent},
       {path: 'opciones', component: OpcionesComponent},
       {path: 'alcances', component: AlcancesComponent},
+      {path: 'importador', component: ImportadorComponent}
     ]
   }
 

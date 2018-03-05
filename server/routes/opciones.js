@@ -18,5 +18,9 @@ router.route('/opciones')
         res.json(opcion);
     });
 })
+router.route('/opciones/model')
+.get((req, res) => {
+    res.json(Opciones.schema.paths)
+})
 
 module.exports = router;

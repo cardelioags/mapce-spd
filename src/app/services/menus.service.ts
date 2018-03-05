@@ -1,7 +1,16 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+
 
 @Injectable()
 export class MenusService {
+
+    private url = 'http://localhost:3000';
+
+    constructor(
+        private _http: HttpClient
+    ) {}
     public navMenu = [
         {
             link: '/principal',
@@ -90,5 +99,8 @@ export class MenusService {
 
     getAdminMenu() {
         return this.adminMenu;
+    }
+    getSchema(): Observable <any> {
+        return this._http.get(`${this.url}/api/menus/model`);
     }
 }

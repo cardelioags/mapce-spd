@@ -69,6 +69,9 @@ export class OpcionesComponent implements OnInit {
         this.heightTable = 500;
       }
     );
+    this._opciones.getSchema().subscribe((res: any) => {
+      console.log(res);
+    });
   }
 
   sort(sortEvent: ITdDataTableSortChangeEvent): void {

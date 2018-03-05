@@ -23,4 +23,7 @@ export class PersonasService {
     upsertPersona(dato): Observable <any> {
         return this._http.put(`${this.url}/api/personas/`, dato, httpOptions);
     }
+    getSchema(): Observable <any> {
+        return this._http.get(`${this.url}/api/personas/model`);
+    }
 }

@@ -52,6 +52,11 @@ export class BuscarPersonaComponent implements OnInit {
         this.heightTable = 500;
       }
     );
+    this._personas.getSchema().subscribe(
+      res => {
+        console.log(res);
+      }
+    );
   }
 
   sort(sortEvent: ITdDataTableSortChangeEvent): void {
