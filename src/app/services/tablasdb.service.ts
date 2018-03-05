@@ -18,6 +18,14 @@ export class TablasdbService {
         plazas: {
             title: 'Plazas',
             schema: {},
+        },
+        ccts: {
+            title: 'CCTs',
+            schema: {},
         }
     };
+
+    getTables() {
+        return this.tablas;
+    }
 }
