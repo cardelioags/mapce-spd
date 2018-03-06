@@ -1,29 +1,39 @@
 import { Injectable } from '@angular/core';
+import { OpcionesService } from './opciones.service';
+import { CctsService } from './ccts.service';
 
 @Injectable()
 export class TablasdbService {
-    private tablas = {
-        personas: {
+    private tablas = [
+        {
             title: 'Personas',
-            schema: {},
-        },
-        alcances: {
+            schema: [],
+        }, {
             title: 'Alcances',
-            schema: {},
-        },
-        opciones: {
+            schema: [],
+        }, {
             title: 'Opciones',
-            schema: {},
-        },
-        plazas: {
+            schema: [],
+        }, {
             title: 'Plazas',
-            schema: {},
-        },
-        ccts: {
+            schema: [],
+        }, {
             title: 'CCTs',
-            schema: {},
+            schema: [],
         }
-    };
+    ];
+
+    constructor(
+        private _opciones: OpcionesService,
+        private _ccts: CctsService
+    ) {
+        this._opciones.getSchema().subscribe(res => {
+            this.tablas[2].schema = Object.keys(res);
+        });
+        this._ccts.getSchema().subscribe(res => {
+            this.tablas[4].schema = Object.keys(res);
+        });
+    }
 
     getTables() {
         return this.tablas;

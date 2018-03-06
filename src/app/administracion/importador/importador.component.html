@@ -1,47 +1,63 @@
+<button mat-fab (click)="pruebaCarga()" matTooltip="Importar registros" class="fabFix" color="warn">
+  <mat-icon class="mat-18">import_export</mat-icon>
+</button>
+
+
 <mat-card>
   <mat-card-title>Importador de Información</mat-card-title>
   <mat-card-subtitle>
-      <input type="file" (change)="onFileChange($event)" multiple="false" />
-      <a mat-raised-button color="accent" (click)="pruebaCarga()">Cargar/Actualizar catálogo de personal</a>
+    <input type="file" (change)="onFileChange($event)" multiple="false" />
   </mat-card-subtitle>
   <mat-divider></mat-divider>
   <mat-card-content>
-      <span>{{"Registros actualizados "+contActualizados}}</span>
-      <div layout="row" layout-align="start center" class="pad-left-sm pad-right-sm">
-          <span *ngIf="!searchBox.searchVisible" class="push-left-sm">
-            </span>
-          <span *ngIf="!searchBox.searchVisible" class="push-left-sm">
-            <span *ngIf="(selectable && !selectedRows.length) || !selectable" class="mat-title">Carga de Datos</span>
-          <span *ngIf="selectedRows.length && selectable" class="mat-body-1">0 item(s) selected</span>
-          </span>
-          <td-search-box #searchBox backIcon="arrow_back" class="push-right-sm" placeholder="Escribe un filtro" (searchDebounce)="search($event)" flex>
-          </td-search-box>
-      </div>
+    <span>{{"Registros actualizados "+contActualizados}}</span>
+    <div layout="row" layout-align="start center" class="pad-left-sm pad-right-sm">
+      <span *ngIf="!searchBox.searchVisible" class="push-left-sm">
+      </span>
+      <span *ngIf="!searchBox.searchVisible" class="push-left-sm">
+        <span *ngIf="(selectable && !selectedRows.length) || !selectable" class="mat-title">Carga de Datos</span>
+        <span *ngIf="selectedRows.length && selectable" class="mat-body-1">0 registro(s) seleccionado</span>
+      </span>
+      <td-search-box #searchBox backIcon="arrow_back" class="push-right-sm" placeholder="Escribe un filtro" (searchDebounce)="search($event)"
+        flex>
+      </td-search-box>
+    </div>
 
-      <td-data-table #dataTable [data]="filteredData" [columns]="columns" [selectable]="selectable" [clickable]="clickable" [multiple]="multiple" [sortable]="true" [sortBy]="sortBy" [(ngModel)]="selectedRows" [sortOrder]="sortOrder" (sortChange)="sort($event)"
-          (rowClick)="showAlert($event)" [style.height.px]="700">
-      </td-data-table>
-      <div class="md-padding" *ngIf="!dataTable.hasData" layout="row" layout-align="center center">
-          <h3>No results to display.</h3>
-      </div>
-      <td-paging-bar #pagingBar [pageSize]="pageSize" [total]="filteredTotal" (change)="page($event)">
-          <span hide-xs>Rows per page:</span>
-          <mat-select [style.width.px]="50" [(ngModel)]="pageSize">
-              <mat-option *ngFor="let size of [50,100,200,500]" [value]="size">
-                  {{size}}
-              </mat-option>
-          </mat-select>
-          {{pagingBar.range}}
-          <span hide-xs>of {{pagingBar.total}}</span>
-      </td-paging-bar>
-      <a mat-mini-fab href="" color="primary">
-          <mat-icon class="mat-18">add</mat-icon>
-      </a>
+    <td-data-table #dataTable [data]="filteredData" [columns]="columns" [selectable]="selectable" [clickable]="clickable" [multiple]="multiple"
+      [sortable]="true" [sortBy]="sortBy" [(ngModel)]="selectedRows" [sortOrder]="sortOrder" (sortChange)="sort($event)" (rowClick)="showAlert($event)"
+      [style.height.px]="200">
+    </td-data-table>
+    <div class="md-padding" *ngIf="!dataTable.hasData" layout="row" layout-align="center center">
+      <h3>No hay registros para mostrar.</h3>
+    </div>
+    <td-paging-bar #pagingBar [pageSize]="pageSize" [total]="filteredTotal" (change)="page($event)">
+      <span hide-xs>Registros por página:</span>
+      <mat-select [style.width.px]="50" [(ngModel)]="pageSize">
+        <mat-option *ngFor="let size of [50,100,200,500]" [value]="size">
+          {{size}}
+        </mat-option>
+      </mat-select>
+      {{pagingBar.range}}
+      <span hide-xs>of {{pagingBar.total}}</span>
+    </td-paging-bar>
+    <mat-divider></mat-divider>
+    <mat-form-field style="width: 100%">
+      <mat-select placeholder="Selecciona la tabla a actualizar" [(ngModel)]="tablaSelected">
+        <mat-option *ngFor="let tabla of tablas" [value]="tabla">
+          {{tabla.title}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-list dense>
+      <mat-list-item *ngFor="let campo of tablaSelected.schema">
+        {{campo}}
+      </mat-list-item>
+    </mat-list>
   </mat-card-content>
   <mat-divider></mat-divider>
   <mat-card-actions>
-      <a mat-button color="accent" class="text-upper">
-          <span>View More</span>
-      </a>
+    <a mat-button color="accent" class="text-upper">
+      <span>Ver Más</span>
+    </a>
   </mat-card-actions>
 </mat-card>

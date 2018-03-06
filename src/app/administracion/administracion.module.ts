@@ -8,11 +8,13 @@ import { RolesModule } from './roles/roles.module';
 import { PersonasModule } from './personas/personas.module';
 import { OpcionesModule } from './opciones/opciones.module';
 import { ImportadorModule } from './importador/importador.module';
+import { CctsComponent } from './ccts/ccts.component';
 
 @NgModule({
     declarations: [
         AlcancesComponent,
         MainAdministracionComponent,
+        CctsComponent,
     ],
     imports: [
         SharedModule,

@@ -8,19 +8,22 @@ import {
 import { IPageChangeEvent } from '@covalent/core';
 import { PersonasService } from '../../services/personas.service';
 import * as XLSX from 'xlsx';
+import { TablasdbService } from '../../services/tablasdb.service';
 
 @Component({
   selector: 'app-importador',
   templateUrl: './importador.component.html',
   styleUrls: ['./importador.component.css'],
-  providers: [PersonasService]
+  providers: [PersonasService, TablasdbService]
 })
 export class ImportadorComponent implements OnInit {
+  public tablas = {};
+  public tablaSelected = {};
+
   public data: any = [];
   public contNuevos: Number = 0;
   public contActualizados: Number = 0;
   public files: any;
-  public testData = { curp: 'CARD830331QPA', nombre: 'DAVID OMAR' };
   columns: ITdDataTableColumn[] = [];
 
   filteredData: any[] = this.data;
@@ -93,11 +96,13 @@ export class ImportadorComponent implements OnInit {
 
   constructor(
     private _dataTableService: TdDataTableService,
-    private _personas: PersonasService
+    private _personas: PersonasService,
+    private _tablas: TablasdbService
   ) {}
 
   ngOnInit(): void {
     this.filter();
+    this.tablas = this._tablas.getTables();
   }
 
   sort(sortEvent: ITdDataTableSortChangeEvent): void {

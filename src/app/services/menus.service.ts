@@ -91,6 +91,12 @@ export class MenusService {
             title: 'Importador',
             description: 'Carga de información mediante Layouts',
             link: '/administracion/importador'
+        },
+        {
+            icon: 'school',
+            title: 'CCTs',
+            description: 'Catálogo de CCTs',
+            link: '/administracion/ccts'
         }
       ];
     getMenu() {

@@ -31,6 +31,8 @@ import { UsuariosModule } from './administracion/usuarios/usuarios.module';
 import { RolesModule } from './administracion/roles/roles.module';
 import { PersonasModule } from './administracion/personas/personas.module';
 import { MainAdministracionComponent } from './administracion/main-administracion/main-administracion.component';
+import { OpcionesService } from '../app/services/opciones.service';
+import { CctsService } from '../app/services/ccts.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,13 @@ import { MainAdministracionComponent } from './administracion/main-administracio
     AppRoutingModule,
     AdministracionModule,
   ],
-  providers: [ TdMediaService, MenusService, TdDataTableService],
-  bootstrap: [ AppComponent ],
+  providers: [
+    TdMediaService,
+    MenusService,
+    TdDataTableService,
+    OpcionesService,
+    CctsService
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
