@@ -1,4 +1,4 @@
-<button mat-fab (click)="pruebaCarga()" matTooltip="Importar registros" class="fabFix" color="warn">
+<button mat-fab (click)="importar()" matTooltip="Importar registros" class="fabFix" color="warn">
   <mat-icon class="mat-18">import_export</mat-icon>
 </button>
 
@@ -42,9 +42,16 @@
     </td-paging-bar>
     <mat-divider></mat-divider>
     <mat-form-field style="width: 100%">
-      <mat-select placeholder="Selecciona la tabla a actualizar" [(ngModel)]="tablaSelected">
+      <mat-select placeholder="Selecciona la tabla a actualizar" [(ngModel)]="tablaSelected" (change)="comparaCampos(tablaSelected)">
         <mat-option *ngFor="let tabla of tablas" [value]="tabla">
           {{tabla.title}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field style="width: 100%">
+      <mat-select placeholder="Selecciona el campo ID" [(ngModel)]="id">
+        <mat-option *ngFor="let id of tablaSelected.schema" [value]="id">
+          {{id}}
         </mat-option>
       </mat-select>
     </mat-form-field>

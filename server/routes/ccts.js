@@ -3,27 +3,22 @@ const Cct = require('../models/cct');
 
 router.route('/ccts')
     .get((req, res) => {})
-    .post((req, res) => {})
+    .post((req, res) => {});
+router.route('/ccts/importar')
     .put((req, res) => {
         var cont = 0;
+        var filterReq = {};
         console.log(req.body.length);
         /*Persona.insertMany(req.body, { ordered: false }).then(
           (result) => { res.json(result) },
           (err) => { res.json(err) }
         );*/
-        for (let i = 0; i < req.body.length; i++)
+        for (var i = 0; i < req.body.data.length; i++)
+            filterReq.CV_CCT = req.body.data[i][req.body.id];
             Persona.collection.bulkWrite([{
                 updateOne: {
-                    filter: {
-                        CV_CCT: req.body[i].curp
-                    },
-                    update: {
-                        curp: req.body[i].curp,
-                        rfc: req.body[i].rfc,
-                        nombre: req.body[i].nombre,
-                        prim_apell: req.body[i].prim_apell,
-                        segu_apell: req.body[i].segu_apell,
-                    },
+                    filter: filterReq,
+                    update: req.body.data[i],
                     upsert: true
                 }
             }]).then(

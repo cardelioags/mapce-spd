@@ -18,7 +18,8 @@ import { TablasdbService } from '../../services/tablasdb.service';
 })
 export class ImportadorComponent implements OnInit {
   public tablas = {};
-  public tablaSelected = {};
+  public tablaSelected = {title: '', schema: [], api: ''};
+  public id = '';
 
   public data: any = [];
   public contNuevos: Number = 0;
@@ -40,6 +41,16 @@ export class ImportadorComponent implements OnInit {
   clickable: Boolean = true;
   multiple: Boolean = true;
 
+  comparaCampos() {
+    // tslint:disable-next-line:forin
+    for (const i in this.tablaSelected.schema) {
+      this.columns.map((col) => {
+        if (col.name === this.tablaSelected.schema[i]) {
+          this.tablaSelected.schema[i] = this.tablaSelected.schema[i] + ' - Para Actualizar';
+        }
+      });
+    }
+  }
   selectEvent($e) {
     console.log($e);
     console.log(this.files[0]);
@@ -156,8 +167,8 @@ export class ImportadorComponent implements OnInit {
     this.filteredData = newData;
   }
 
-  pruebaCarga() {
-    this._personas.upsertPersona(this.data).subscribe(res => {
+  importar() {
+    this._tablas.importData(this.tablaSelected.api, this.data, this.id).subscribe(res => {
       console.log(res);
     });
   }

@@ -33,6 +33,7 @@ import { PersonasModule } from './administracion/personas/personas.module';
 import { MainAdministracionComponent } from './administracion/main-administracion/main-administracion.component';
 import { OpcionesService } from '../app/services/opciones.service';
 import { CctsService } from '../app/services/ccts.service';
+import { PersonasService } from './services/personas.service';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { CctsService } from '../app/services/ccts.service';
     MenusService,
     TdDataTableService,
     OpcionesService,
-    CctsService
+    CctsService,
+    PersonasService
   ],
   bootstrap: [AppComponent],
 })
