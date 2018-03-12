@@ -9,12 +9,14 @@ import { PersonasModule } from './personas/personas.module';
 import { OpcionesModule } from './opciones/opciones.module';
 import { ImportadorModule } from './importador/importador.module';
 import { CctsComponent } from './ccts/ccts.component';
+import { NominaComponent } from './nomina/nomina.component';
 
 @NgModule({
     declarations: [
         AlcancesComponent,
         MainAdministracionComponent,
         CctsComponent,
+        NominaComponent
     ],
     imports: [
         SharedModule,

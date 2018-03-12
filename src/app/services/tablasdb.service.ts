@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { OpcionesService } from './opciones.service';
 import { CctsService } from './ccts.service';
 import { PersonasService } from './personas.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { NominaService } from './nomina.service';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -30,6 +31,10 @@ export class TablasdbService {
             title: 'CCTs',
             api: 'ccts',
             schema: [],
+        }, {
+            title: 'Reporte de Nómina',
+            api: 'nomina',
+            schema: [],
         }
     ];
 
@@ -37,7 +42,8 @@ export class TablasdbService {
         private _http: HttpClient,
         private _personas: PersonasService,
         private _opciones: OpcionesService,
-        private _ccts: CctsService
+        private _ccts: CctsService,
+        private _nomina: NominaService
     ) {
         this._personas.getSchema().subscribe(res => {
             this.tablas[0].schema = Object.keys(res);
@@ -47,6 +53,9 @@ export class TablasdbService {
         });
         this._ccts.getSchema().subscribe(res => {
             this.tablas[4].schema = Object.keys(res);
+        });
+        this._nomina.getSchema().subscribe(res => {
+            this.tablas[5].schema = Object.keys(res);
         });
     }
 

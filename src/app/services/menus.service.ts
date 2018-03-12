@@ -97,8 +97,14 @@ export class MenusService {
             title: 'CCTs',
             description: 'Catálogo de CCTs',
             link: '/administracion/ccts'
+        },
+        {
+            icon: 'payment',
+            title: 'Nómina',
+            description: 'Último Reporte de Nómina',
+            link: '/administracion/nomina'
         }
-      ];
+    ];
     getMenu() {
         return this.navMenu;
     }

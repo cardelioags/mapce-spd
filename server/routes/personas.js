@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
 const Persona = require('../models/personas');
-const db = require('../config/db')
 
 
 router.route('/personas')
@@ -17,36 +15,31 @@ router.route('/personas')
     })
     .post((req, res) => {
         res.send('Persona Registrada')
-    })
+    });
+
+
+router.route('/personas/importar')
     .put((req, res) => {
         var cont = 0;
-        console.log(req.body.length);
-        /*Persona.insertMany(req.body, { ordered: false }).then(
-          (result) => { res.json(result) },
-          (err) => { res.json(err) }
-        );*/
-        for (let i = 0; i < req.body.length; i++)
-            Persona.collection.bulkWrite([{
-                updateOne: {
-                    filter: {
-                        curp: req.body[i].curp
-                    },
-                    update: {
-                        curp: req.body[i].curp,
-                        rfc: req.body[i].rfc,
-                        nombre: req.body[i].nombre,
-                        prim_apell: req.body[i].prim_apell,
-                        segu_apell: req.body[i].segu_apell,
-                    },
-                    upsert: true
-                }
-            }]).then(
-                (result) => {},
-                (err) => {
-                    console.log(err)
-                }
-            )
-        res.send(200);
+        var filterReq = {};
+        for (var i = 0; i < req.body.data.length; i++) {
+            filterReq[req.body.id] = req.body.data[i][req.body.id];
+            Persona.bulkWrite([{
+                    replaceOne: {
+                        filter: filterReq,
+                        replacement: req.body.data[i],
+                        upsert: true,
+                        setDefaultsOnInsert: true,
+                    }
+                }])
+                .then(
+                    result => {},
+                    err => {
+                        //console.log(err);
+                    }
+                );
+        }
+        res.send("Terminó el bucle de actualización");
     });
 
 router.route('/personas/model')

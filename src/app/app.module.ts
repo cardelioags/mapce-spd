@@ -34,6 +34,7 @@ import { MainAdministracionComponent } from './administracion/main-administracio
 import { OpcionesService } from '../app/services/opciones.service';
 import { CctsService } from '../app/services/ccts.service';
 import { PersonasService } from './services/personas.service';
+import { NominaService } from './services/nomina.service';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { PersonasService } from './services/personas.service';
     TdDataTableService,
     OpcionesService,
     CctsService,
-    PersonasService
+    PersonasService,
+    NominaService,
   ],
   bootstrap: [AppComponent],
 })
