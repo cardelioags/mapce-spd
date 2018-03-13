@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 var PersonaSchema = new Schema({
     curp: {
         type: String,
+        uppercase: true,
         index: true,
         unique: true
     },
@@ -12,11 +13,12 @@ var PersonaSchema = new Schema({
     segu_apell: String,
     rfc: {
         type: String,
+        uppercase: true,
         index: true,
-        unique: true
     },
     email: {
         type: String,
+        lowercase: true,
         index: true
     },
     tel_fijo: String,
