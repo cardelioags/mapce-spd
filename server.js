@@ -7,6 +7,8 @@ var multer = require('multer');
 
 const app = express();
 
+app.io = require('socket.io')(); //importacion del modulo soket.io
+
 allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
@@ -104,3 +106,4 @@ const server = http.createServer(app);
 server.listen(port, () => {
     console.log(`La aplicación está corriendo en localhost:${port}`);
 })
+app.io.listen(server); // Se inserta la libreria socket.io a al servidor
