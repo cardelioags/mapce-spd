@@ -13,11 +13,11 @@ export class MenusComponent implements OnInit {
   constructor(private _menus: MenusService) { }
 
   ngOnInit() {
-/*    this._menus.getMenu().subscribe(
+    this._menus.navMenu.subscribe(
       (menus: any) => {
-        this.menus = menus;
+        this.menus = this._menus.getMenu();
       }
-    );*/
+    );
   }
 
 }

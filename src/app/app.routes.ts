@@ -18,6 +18,7 @@ import { AlcancesComponent } from './administracion/alcances/alcances.component'
 import { ImportadorComponent } from './administracion/importador/importador.component';
 import { CctsComponent } from './administracion/ccts/ccts.component';
 import { NominaComponent } from './administracion/nomina/nomina.component';
+import { MenusComponent } from './administracion/menus/menus.component';
 
 
 const routes: Routes = [
@@ -39,7 +40,8 @@ const routes: Routes = [
       {path: 'alcances', component: AlcancesComponent},
       {path: 'importador', component: ImportadorComponent},
       {path: 'ccts', component: CctsComponent},
-      {path: 'nomina', component: NominaComponent}
+      {path: 'nomina', component: NominaComponent},
+      {path: 'menus', component: MenusComponent}
     ]
   }
 

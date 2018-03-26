@@ -1,0 +1,74 @@
+{tipoSostenimiento: "PÚBLICO", cveNivelEducativo: 2, campoDisciplinar: "",…}
+asignatura:""
+autoridadInmediata:{nombre: "DAVID OMAR", primerApellido: "CASILLAS", curp: "CARD830331HGTSZV05", cveDocente: 244320,…}
+curp:"CARD830331HGTSZV05"
+cveDocente:244320
+nombre:"DAVID OMAR"
+primerApellido:"CASILLAS"
+segundoApellido:"RUIZ"
+campoDisciplinar:""
+cct:"01ADG0005J"
+correosAutoridadInmediata:[{correoElectronico: "cardelio.ags@gmail.com", curp: "CARD830331HGTSZV05", nuevo: "F",…}]
+0:{correoElectronico: "cardelio.ags@gmail.com", curp: "CARD830331HGTSZV05", nuevo: "F",…}
+correoElectronico:"cardelio.ags@gmail.com"
+curp:"CARD830331HGTSZV05"
+cveDocente:244320
+nuevo:"F"
+correosDocente:[{correoElectronico: "oskarcarmona@hotmail.com", curp: "CAHO760911HDFRRS07", nuevo: "F",…}]
+0:{correoElectronico: "oskarcarmona@hotmail.com", curp: "CAHO760911HDFRRS07", nuevo: "F",…}
+correoElectronico:"oskarcarmona@hotmail.com"
+curp:"CAHO760911HDFRRS07"
+cveDocente:742587
+nuevo:"F"
+cveAsignatura:null
+cveCampoDisciplinar:null
+cveEntidad:1
+cveEstatus:3
+cveLocalidadCct:null
+cveModalidad:7
+cveMunicipioCct:null
+cveNivelEducativo:2
+cvePuesto:1
+cveServicioEducativo:3
+cveStatusRegistro:null
+cveSubsistema:null
+cveTipoEvaluacion:42
+cveTipoEvaluacionAnterior:42
+cveTipoFuncion:1
+cveTipoSostenimiento:3
+cveTipoVacante:null
+descripcionSostenimiento:"Federalizado"
+docente:{nombre: "OSCAR ARTURO", primerApellido: "CARMONA", curp: "CAHO760911HDFRRS07", cveDocente: 742587,…}
+curp:"CAHO760911HDFRRS07"
+cveDocente:742587
+nombre:"OSCAR ARTURO"
+primerApellido:"CARMONA"
+rfc:"CAHO760911G35"
+segundoApellido:"HERNANDEZ"
+entidadFederativa:"2"
+ingresoServicioPublico:"2014-08-14"
+localidadCct:"AGUASCALIENTES"
+mecanismo:1
+modalidad:"General"
+municipioCct:"AGUASCALIENTES"
+nivelEducativo:"Educación Básica"
+numOportunidad:1
+plazas:[{cveNombramiento: 1, descripcionNombramiento: "Definitiva", cveTipoEvaluacion: 42,…}]
+0:{cveNombramiento: 1, descripcionNombramiento: "Definitiva", cveTipoEvaluacion: 42,…}
+cct:"01ADG0005J"
+cveDocente:742587
+cveNombramiento:1
+cveTipoEvaluacion:42
+cveTipoPlaza:1
+cveTipoSostenimiento:3
+descripcionNombramiento:"Definitiva"
+descripcionSostenimiento:"Federalizado"
+horas:48
+nueva:"F"
+plaza:"070310H34813000003300"
+tipoPlaza:"JORNADA"
+puesto:"Docente"
+servicioEducativo:"Secundaria"
+tipoEvaluacion:"Docente. Educación Secundaria. Formación Cívica y Ética"
+tipoFuncion:"Docente"
+tipoSostenimiento:"PÚBLICO"
