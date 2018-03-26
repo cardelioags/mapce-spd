@@ -5,9 +5,11 @@
     </button>
         <span class="cursor-pointer">Servicio Profesional Docente</span>
         <span flex></span>
-        <a *ngFor="let menu of navMenu" mat-icon-button matTooltip="{{menu.title}}" [routerLink]="[ menu.link ]">
+        <app-main-menu></app-main-menu>
+        <!--
+        <a *ngFor="let menu of navMenu | async" mat-icon-button matTooltip="{{menu.title}}" [routerLink]="[ menu.link ]">
             <mat-icon>{{menu.icon}}</mat-icon>
-        </a>
+        </a>-->
     </div>
     <td-layout-card-over>
         <mat-card-title>Módulo Estatal de Registro del Servicio Profesional Docente</mat-card-title>

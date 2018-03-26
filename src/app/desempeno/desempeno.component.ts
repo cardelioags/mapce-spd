@@ -11,8 +11,8 @@ import { MenusService } from '../services/menus.service';
 })
 export class DesempenoComponent implements AfterViewInit {
 
- 
-  navMenu = [];
+
+  navMenu;
   submenuNav = [
     {
       icon: 'arrow_back',
@@ -44,7 +44,7 @@ export class DesempenoComponent implements AfterViewInit {
       title: 'Normateca',
       description: 'Define y administra alcances para los roles'
     },
- 
+
   ];
 
   constructor(private _changeDetectorRef: ChangeDetectorRef,

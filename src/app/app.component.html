@@ -1,7 +1,7 @@
 <td-layout>
     <td-navigation-drawer flex sidenavTitle="Servicio Profesional Docente" name="Nombre del Usuario" email="firstname.lastname@company.com">
         <mat-nav-list>
-            <a *ngFor="let menu of navMenu" mat-list-item tdLayoutToggle [routerLink]="[ menu.link ]">
+            <a *ngFor="let menu of navMenu | async" mat-list-item tdLayoutToggle [routerLink]="[ menu.link ]">
                 <mat-icon>{{menu.icon}}</mat-icon>{{menu.title}}</a>
         </mat-nav-list>
         <div td-navigation-drawer-menu>

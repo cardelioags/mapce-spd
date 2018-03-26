@@ -58,6 +58,8 @@ const personasRoutes = require('./server/routes/personas')
 const plazasRoutes = require('./server/routes/plazas')
 const cctsRoutes = require('./server/routes/ccts')
 const nominaRoutes = require('./server/routes/res_nomina')
+const menusRoutes = require('./server/routes/menus')
+
 
 
 const alumnosRoutes = require('./server/routes/alumnos');
@@ -78,6 +80,7 @@ app.use('/api', [
     plazasRoutes,
     cctsRoutes,
     nominaRoutes,
+    menusRoutes,
     opcionesRoutes,
     alcacesRoutes,
     alumnosRoutes,

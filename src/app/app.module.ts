@@ -35,6 +35,7 @@ import { OpcionesService } from '../app/services/opciones.service';
 import { CctsService } from '../app/services/ccts.service';
 import { PersonasService } from './services/personas.service';
 import { NominaService } from './services/nomina.service';
+import { MainMenuComponent } from './main-menu/main-menu.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { NominaService } from './services/nomina.service';
     ReconocimientoComponent,
     FormacionContinuaComponent,
     AdministracionComponent,
+    MainMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -65,6 +67,7 @@ import { NominaService } from './services/nomina.service';
     CctsService,
     PersonasService,
     NominaService,
+    MenusService,
   ],
   bootstrap: [AppComponent],
 })

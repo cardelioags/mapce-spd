@@ -10,12 +10,12 @@ import { MenuPositionX } from '@angular/material/menu/typings/menu-positions';
 })
 export class MainAdministracionComponent implements AfterViewInit {
 
-  adminMenu = [];
+  adminMenu;
 
   constructor(
     private _menu: MenusService,
     public media: TdMediaService) {
-      this.adminMenu = this._menu.getAdminMenu();
+      this.adminMenu = this._menu.subs;
     }
     ngAfterViewInit(): void {
       this.media.broadcast();

@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TdMediaService } from '@covalent/core';
 import { MenusService } from './services/menus.service';
 
@@ -8,18 +8,18 @@ import { MenusService } from './services/menus.service';
   templateUrl: './app.component.html',
   animations: [],
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements OnInit {
 
-  public navMenu = [];
+  public navMenu;
   constructor(
     public media: TdMediaService,
     public _menusService: MenusService
   ) {
-    this.navMenu = this._menusService.getMenu();
+    this._menusService.getMenu();
   }
 
-  ngAfterViewInit(): void {
-
+  ngOnInit(): void {
+    this.navMenu = this._menusService.navMenu;
   }
 
 }

@@ -9,7 +9,7 @@ import { MenusService } from './../services/menus.service';
   animations: [],
 })
 export class ReconocimientoComponent implements AfterViewInit {
-  navMenu = [];
+  navMenu;
   submenuNav = [
     {
       icon: 'arrow_back',

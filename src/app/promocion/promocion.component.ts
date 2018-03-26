@@ -9,7 +9,7 @@ import { MenusService } from './../services/menus.service';
   animations: [],
 })
 export class PromocionComponent implements AfterViewInit {
-  navMenu = [];
+  navMenu;
   submenuNav = [
     {
       icon: 'arrow_back',

@@ -10,13 +10,15 @@ import { OpcionesModule } from './opciones/opciones.module';
 import { ImportadorModule } from './importador/importador.module';
 import { CctsComponent } from './ccts/ccts.component';
 import { NominaComponent } from './nomina/nomina.component';
+import { MenusComponent } from './menus/menus.component';
 
 @NgModule({
     declarations: [
         AlcancesComponent,
         MainAdministracionComponent,
         CctsComponent,
-        NominaComponent
+        NominaComponent,
+        MenusComponent
     ],
     imports: [
         SharedModule,
@@ -28,6 +30,7 @@ import { NominaComponent } from './nomina/nomina.component';
     ],
     exports: [
         AlcancesComponent,
+        MenusComponent,
         MainAdministracionComponent,
     ],
     providers: [],

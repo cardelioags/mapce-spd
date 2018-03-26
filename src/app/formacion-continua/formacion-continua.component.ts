@@ -12,7 +12,7 @@ import { MenusService } from '../services/menus.service';
 export class FormacionContinuaComponent implements AfterViewInit {
 
 
-  navMenu = [];
+  navMenu;
   submenuNav = [
     {
       icon: 'arrow_back',

@@ -19,12 +19,12 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 })
 export class CctsComponent implements OnInit {
   columns: ITdDataTableColumn[] = [
-    { name: 'titulo', label: 'Título', sortable: true, width: 200 },
-    { name: 'descripcion', label: 'Descripción', filter: true},
-    { name: 'icono', label: 'Ícono' },
-    { name: 'ruta', label: 'URL (Ruta)'},
-    { name: 'depende', label: 'Depende de'},
-    { name: 'tipo', label: 'Tipo de opción'},
+    { name: 'CV_CCT', label: 'CCT', sortable: true, width: 200 },
+    { name: 'C_NOMBRE', label: 'Nombre', filter: true},
+    { name: 'C_TIPO', label: 'Tipo' },
+    { name: 'SERREG_CV_CCT', label: 'URSE'},
+    { name: 'SUPERVISION_CV_CCT', label: 'Supervisión'},
+    { name: 'C_ESTATUS', label: 'Estatus'},
   ];
 
   data: any[] = []; // see json data
@@ -37,7 +37,7 @@ export class CctsComponent implements OnInit {
   fromRow = 1;
   currentPage = 1;
   pageSize = 50;
-  sortBy = 'titulo';
+  sortBy = 'CV_CCT';
   selectable = true;
   selectedRows: any[] = [];
   multiple = true;

@@ -1,0 +1,3 @@
+<a *ngFor="let menu of navMenu | async" mat-icon-button matTooltip="{{menu.title}}" [routerLink]="[ menu.link ]">
+    <mat-icon>{{menu.icon}}</mat-icon>
+</a>

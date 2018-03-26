@@ -1,6 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { TdMediaService } from '@covalent/core';
-import { MenusService } from './../services/menus.service'
+import { MenusService } from './../services/menus.service';
 
 declare const gapi: any;
 
@@ -12,7 +12,7 @@ declare const gapi: any;
 })
 export class PrincipalComponent implements AfterViewInit {
   public suma = 0;
-  public navMenu = [];
+  public navMenu;
   public usuario_inst: any = {};
   public auth2: any;
   public googleInit() {
@@ -28,7 +28,7 @@ export class PrincipalComponent implements AfterViewInit {
   public attachSignin(element) {
     this.auth2.attachClickHandler(element, {},
       (googleUser) => {
-        let profile = googleUser.getBasicProfile();
+        const profile = googleUser.getBasicProfile();
         this.usuario_inst.token = googleUser.getAuthResponse().id_token;
         this.usuario_inst.id = profile.getId();
         this.usuario_inst.nombre = profile.getName();
@@ -39,12 +39,11 @@ export class PrincipalComponent implements AfterViewInit {
         console.log(JSON.stringify(error, undefined, 2));
       });
   }
- 
+
   constructor(public media: TdMediaService, public _menusService: MenusService) {
-    this.navMenu = this._menusService.getMenu();
+    // this.navMenu = this._menusService.navMenu;
   }
 
-  
   ngAfterViewInit(): void {
     this.googleInit();
   }

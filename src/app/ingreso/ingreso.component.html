@@ -1,40 +1,37 @@
-<td-layout-nav-list #navList color="primary" [opened]="media.registerQuery('gt-sm') | async" [mode]="(media.registerQuery('gt-sm') | async) ? 'side' : 'over'"
-  [sidenavWidth]="(media.registerQuery('gt-xs') | async) ? '350px' : '100%'">
-  <div td-sidenav-toolbar-content layout="row" layout-align="start center">
-    <button mat-icon-button tdLayoutToggle>
+<td-layout-nav-list #navList color="primary" [opened]="media.registerQuery('gt-sm') | async" [mode]="(media.registerQuery('gt-sm') | async) ? 'side' : 'over'" [sidenavWidth]="(media.registerQuery('gt-xs') | async) ? '350px' : '100%'">
+    <div td-sidenav-toolbar-content layout="row" layout-align="start center">
+        <button mat-icon-button tdLayoutToggle>
       <mat-icon>menu</mat-icon>
     </button>
-    <span [routerLink]="['/']" class="cursor-pointer">Servicio Profesional Docente</span>
-  </div>
-  <div td-toolbar-content layout="row" layout-align="start center" flex>
-    <button mat-icon-button tdLayoutNavListOpen [hideWhenOpened]="true">
+        <span [routerLink]="['/']" class="cursor-pointer">Servicio Profesional Docente</span>
+    </div>
+    <div td-toolbar-content layout="row" layout-align="start center" flex>
+        <button mat-icon-button tdLayoutNavListOpen [hideWhenOpened]="true">
       <mat-icon>arrow_back</mat-icon>
       <span>Ingreso</span>
     </button>
-    <span flex></span>
-    <a *ngFor="let menu of navMenu" mat-icon-button matTooltip="{{menu.title}}" [routerLink]="[ menu.link ]">
-      <mat-icon>{{menu.icon}}</mat-icon>
-    </a>
-  </div>
-  <mat-nav-list td-sidenav-content [tdLayoutNavListClose]="!media.query('gt-sm')">
-    <ng-template let-submenu let-last="last" ngFor [ngForOf]="submenuNav">
-      <a mat-list-item>
-        <mat-icon color="warning" matListAvatar>{{submenu.icon}}</mat-icon>
-        <h3 matLine> {{submenu.title}} </h3>
-        <p matLine> {{submenu.description}} </p>
-      </a>
-      <mat-divider matInset *ngIf="!last"></mat-divider>
-    </ng-template>
-  </mat-nav-list>
-  <div tdMediaToggle="gt-xs" [mediaClasses]="['push-sm']">
-    <router-outlet></router-outlet>
-  </div>
-  <td-layout-footer-inner>
-    Optional inner footer
-  </td-layout-footer-inner>
-  <td-layout-footer>
-    <div layout="row" layout-align="start center">
-      <span class="mat-caption">Copyright &copy; 2017 Teradata. All rights reserved</span>
+        <span flex></span>
+        <app-main-menu></app-main-menu>
     </div>
-  </td-layout-footer>
+    <mat-nav-list td-sidenav-content [tdLayoutNavListClose]="!media.query('gt-sm')">
+        <ng-template let-submenu let-last="last" ngFor [ngForOf]="submenuNav">
+            <a mat-list-item>
+                <mat-icon color="warning" matListAvatar>{{submenu.icon}}</mat-icon>
+                <h3 matLine> {{submenu.title}} </h3>
+                <p matLine> {{submenu.description}} </p>
+            </a>
+            <mat-divider matInset *ngIf="!last"></mat-divider>
+        </ng-template>
+    </mat-nav-list>
+    <div tdMediaToggle="gt-xs" [mediaClasses]="['push-sm']">
+        <router-outlet></router-outlet>
+    </div>
+    <td-layout-footer-inner>
+        Optional inner footer
+    </td-layout-footer-inner>
+    <td-layout-footer>
+        <div layout="row" layout-align="start center">
+            <span class="mat-caption">Copyright &copy; 2017 Teradata. All rights reserved</span>
+        </div>
+    </td-layout-footer>
 </td-layout-nav-list>
