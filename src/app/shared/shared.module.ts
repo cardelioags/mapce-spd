@@ -13,6 +13,8 @@ import {
     CovalentDataTableModule,
     CovalentPagingModule,
     CovalentSearchModule,
+    CovalentMenuModule,
+    CovalentMessageModule
   } from '@covalent/core';
   // import { TdDialogService } from "@covalent/core/dialogs";
 
@@ -63,7 +65,8 @@ import {
         CovalentDataTableModule,
         CovalentPagingModule,
         CovalentSearchModule,
-        MatDialogModule
+        CovalentMessageModule,
+        MatDialogModule,
     ],
     providers: [],
 })

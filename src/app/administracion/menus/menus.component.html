@@ -1,13 +1,44 @@
 <mat-card>
     <mat-card-header>
-        <mat-card-title>Administración de Menus</mat-card-title>
+        <mat-card-title>
+            <h2>Administración de Menus</h2>
+            <td-message label="Advertencia!" sublabel="Las modificaciones en este apartado podrian afectar las funcionalidades del sistema!" color="warn" icon="warning"></td-message>
+        </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <ul>
-            <li></li>
+        <a mat-raised-button (click)="openDialogNuevo({}, 'Nuevo Menú Principal')" color="primary">
+            <mat-icon class="mat-18">add</mat-icon> Agregar Menú Principal</a>
+        <ul class="lista">
+            <li *ngFor="let menu of menus">
+                ├──
+                <mat-icon class="mat-18">{{menu.icon}}</mat-icon>{{menu.title}}
+                <a matTooltip="Añadir submenu" (click)="openDialogNuevo(menu, 'Nuevo Submenu')">
+                    <mat-icon class="mat-18">add_circle</mat-icon>
+                </a>
+                <a matTooltip="Eliminar Opción">
+                    <mat-icon class="mat-18">remove_circle</mat-icon>
+                </a>
+
+                <ul>
+                    <li *ngFor="let sub of menu.subs" class="submenu">
+                        ├──
+                        <mat-icon class="mat-18">{{sub.icon}}</mat-icon>{{sub.title}}
+                        <a matTooltip="Añadir Opción" (click)="openDialogNuevo(menu, 'Nueva Opción')">
+                            <mat-icon class="mat-18" style="color: rgb(56, 69, 92)">add_circle_outline</mat-icon>
+                        </a>
+                        <a matTooltip="Eliminar Opción">
+                            <mat-icon class="mat-18" style="color: rgb(56, 69, 92)">remove_circle_outline</mat-icon>
+                        </a>
+
+                        <ul>
+                            <li *ngFor="let opt of sub.subs">
+                                ├──
+                                <mat-icon class="mat-18">{{sub.icon}}</mat-icon>{{sub.title}}
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </mat-card-content>
-    <mat-card-actions align="start">
-        <button mat-button>Action1</button>
-    </mat-card-actions>
 </mat-card>

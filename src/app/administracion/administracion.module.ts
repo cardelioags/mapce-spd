@@ -11,6 +11,7 @@ import { ImportadorModule } from './importador/importador.module';
 import { CctsComponent } from './ccts/ccts.component';
 import { NominaComponent } from './nomina/nomina.component';
 import { MenusComponent } from './menus/menus.component';
+import { ModalNuevoMenuComponent } from './menus/modales/modal-nuevo-menu/modal-nuevo-menu.component';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,8 @@ import { MenusComponent } from './menus/menus.component';
         MainAdministracionComponent,
         CctsComponent,
         NominaComponent,
-        MenusComponent
+        MenusComponent,
+        ModalNuevoMenuComponent,
     ],
     imports: [
         SharedModule,
@@ -34,5 +36,6 @@ import { MenusComponent } from './menus/menus.component';
         MainAdministracionComponent,
     ],
     providers: [],
+    entryComponents: [ModalNuevoMenuComponent]
 })
 export class AdministracionModule {}
