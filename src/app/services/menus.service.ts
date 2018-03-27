@@ -27,6 +27,9 @@ export class MenusService {
       }
     );
   }
+  putMenu(menu) {
+    return this._http.put(this.url + '/menus', menu, {headers: {'content-type': 'application/json'}});
+  }
   getSchema(): Observable<any> {
     return this._http.get(`${this.url}/api/menus/model`);
   }

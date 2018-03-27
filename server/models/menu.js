@@ -6,6 +6,7 @@ var MenuSchema = new Schema({
     title: String,
     description: String,
     link: String,
+    cve: String,
     subs: [this]
 }, {
     collection: 'menus'

@@ -6,13 +6,13 @@
         </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <a mat-raised-button (click)="openDialogNuevo({}, 'Nuevo Menú Principal')" color="primary">
+        <a mat-raised-button (click)="openDialogNuevo('Nuevo Menú Principal', true)" color="primary">
             <mat-icon class="mat-18">add</mat-icon> Agregar Menú Principal</a>
         <ul class="lista">
-            <li *ngFor="let menu of menus">
+            <li *ngFor="let menu of menus; let idxm = index">
                 ├──
                 <mat-icon class="mat-18">{{menu.icon}}</mat-icon>{{menu.title}}
-                <a matTooltip="Añadir submenu" (click)="openDialogNuevo(menu, 'Nuevo Submenu')">
+                <a matTooltip="Añadir submenu" (click)="openDialogNuevo('Nuevo Submenu', false, idxm)">
                     <mat-icon class="mat-18">add_circle</mat-icon>
                 </a>
                 <a matTooltip="Eliminar Opción">
@@ -20,10 +20,10 @@
                 </a>
 
                 <ul>
-                    <li *ngFor="let sub of menu.subs" class="submenu">
+                    <li *ngFor="let sub of menu.subs; let idxs = index" class="submenu">
                         ├──
                         <mat-icon class="mat-18">{{sub.icon}}</mat-icon>{{sub.title}}
-                        <a matTooltip="Añadir Opción" (click)="openDialogNuevo(menu, 'Nueva Opción')">
+                        <a matTooltip="Añadir Opción" (click)="openDialogNuevo('Nueva Opción', false, idxm, idxs)">
                             <mat-icon class="mat-18" style="color: rgb(56, 69, 92)">add_circle_outline</mat-icon>
                         </a>
                         <a matTooltip="Eliminar Opción">
@@ -33,7 +33,7 @@
                         <ul>
                             <li *ngFor="let opt of sub.subs">
                                 ├──
-                                <mat-icon class="mat-18">{{sub.icon}}</mat-icon>{{sub.title}}
+                                <mat-icon class="mat-18">{{opt.icon}}</mat-icon>{{opt.title}}
                             </li>
                         </ul>
                     </li>

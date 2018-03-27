@@ -25,17 +25,37 @@ export class MenusComponent implements OnInit {
       }
     );
   }
-  openDialogNuevo(obj, titulo): void {
+  openDialogNuevo(titulo, principal, idxm?, idxs?): void {
+    console.log('Indices: ' + idxm + ', ' + idxs);
     const dialogRef = this._dialog.open(ModalNuevoMenuComponent, {
       width: '100%',
       maxWidth: '600px',
-      data: {obj: obj, titulo: titulo  }
+      data: { titulo: titulo }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      if (principal && result) {
+        this.menus.push(result);
+        this._menus.putMenu(result).subscribe(
+          res => {
+            console.log(res);
+          }
+        );
+      }
+      if (!principal && result) {
+        if (idxs === undefined) {
+          this.menus[idxm].subs.push(result);
+        } else {
+          console.log(this.menus[idxm].subs[idxs]);
+          this.menus[idxm].subs[idxs].subs.push(result);
+        }
+        this._menus.putMenu(this.menus[idxm]).subscribe(
+          res => {
+            console.log(res);
+          }
+        );
+      }
     });
   }
-
 
 }

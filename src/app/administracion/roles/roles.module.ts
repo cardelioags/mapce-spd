@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NuevoRolComponent } from './tabs/nuevo-rol/nuevo-rol.component';
 import { SharedModule } from '../../shared/shared.module';
 import { RolesComponent } from './roles.component';
+import { ModalNuevoRolComponent } from './modales/modal-nuevo-rol/modal-nuevo-rol.component';
 
 @NgModule({
     declarations: [
-        NuevoRolComponent,
-        RolesComponent
+        RolesComponent,
+        ModalNuevoRolComponent
     ],
     imports: [
         CommonModule,
         SharedModule
     ],
     exports: [
-        NuevoRolComponent,
         RolesComponent
     ],
     providers: [],
+    entryComponents: [ModalNuevoRolComponent]
 })
 export class RolesModule {}
