@@ -23,7 +23,7 @@
                 </div>
                 <mat-divider></mat-divider>
                 <td-data-table #dataTable [data]="filteredData" [columns]="columns" [selectable]="selectable" [clickable]="clickable" [multiple]="multiple" [sortable]="true" [sortBy]="sortBy" [(ngModel)]="selectedRows" [sortOrder]="sortOrder" (sortChange)="sort($event)"
-                    (rowClick)="showAlert($event)" [style.height.px]="auto">
+                    (rowClick)="showAlert($event)" [style.height.px]="'auto'">
                 </td-data-table>
                 <div class="md-padding" *ngIf="!dataTable.hasData" layout="row" layout-align="center center">
                     <h3>No hay resultados para mostrar.</h3>

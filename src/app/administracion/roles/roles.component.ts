@@ -57,7 +57,7 @@ export class RolesComponent implements OnInit {
         this.data = res;
         console.log(res);
         this.filter();
-        this.heightTable = 500;
+        // this.heightTable = 500;
       }
     );
     this._roles.getRoles().subscribe(

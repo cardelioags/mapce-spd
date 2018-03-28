@@ -1,24 +1,47 @@
 <h1 matDialogTitle>Nuevo Rol</h1>
 
 <mat-dialog-content>
-  <form>
-    <mat-form-field>
-      <input matInput name="descripcion" type="text" required placeholder="Descripción">
-    </mat-form-field>
-    <h4>Seleccione los permisos:</h4>
-      <div layout="row">
-        <div flex></div>
-        <div flex="10"></div>
-      </div>
-    <mat-form-field>
-      <input matInput name="alcances" type="text" required placeholder="Alcance">
-    </mat-form-field>
-  </form>
+    <form>
+        <mat-form-field>
+            <input matInput name="descripcion" type="text" required placeholder="Descripción">
+        </mat-form-field>
+        <h4>Seleccione los permisos:</h4>
+        <ul>
+            <li *ngFor="let menu of menus; let idxm = index">
+                <div layout="row">
+                    <mat-checkbox [checked]="menu.perm" [disabled]="menu.subs.length > 0" (change)="changeCheck($event, idxm)" matTooltipe="menu.description" value="true" color="primary">
+                        <mat-icon class="mat-18">{{menu.icon}}</mat-icon>{{menu.title}}
+                    </mat-checkbox>
+                </div>
+                <ul>
+                    <li *ngFor="let sub of menu.subs; let idxs = index">
+                        <div layout="row">
+                            <mat-checkbox [checked]="sub.perm" [disabled]="sub.subs.length > 0" (change)="changeCheck($event, idxm, idxs)" color="primary">
+                                <mat-icon class="mat-18">{{sub.icon}}</mat-icon>{{sub.title}}
+                            </mat-checkbox>
+                        </div>
+                        <ul>
+                            <li *ngFor="let opt of sub.subs; let idxo = index">
+                                <div layout="row">
+                                    <mat-checkbox [checked]="opt.perm" (change)="changeCheck($event, idxm, idxs, idxo)" color="primary">
+                                        <mat-icon class="mat-18">{{opt.icon}}</mat-icon>{{opt.title}}
+                                    </mat-checkbox>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <mat-form-field>
+            <input matInput name="alcances" type="text" required placeholder="Alcance">
+        </mat-form-field>
+    </form>
 </mat-dialog-content>
 
 <mat-dialog-actions layout-align="end">
-  <button mat-button matDialogClose>Cancelar</button>
-  <button mat-button color="primary">
+    <button mat-button matDialogClose>Cancelar</button>
+    <button mat-button color="primary">
     <mat-icon class="mat-18">save</mat-icon> Guardar</button>
 
 </mat-dialog-actions>
