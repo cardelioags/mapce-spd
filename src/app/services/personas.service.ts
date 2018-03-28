@@ -14,8 +14,12 @@ export class PersonasService {
 
     private url = 'http://localhost:3000';
 
-    getPersona(): Observable <any> {
-        return this._http.get(`${this.url}/api/personas/`);
+    getPersona(dato?): Observable <any> {
+        if (dato) {
+            return this._http.post(`${this.url}/api/personas/buscar`, dato, httpOptions);
+        } else {
+            return this._http.get(`${this.url}/api/personas/`);
+        }
     }
     addPersona(dato): Observable <any> {
         return this._http.post(`${this.url}/api/personas/`, dato, httpOptions);

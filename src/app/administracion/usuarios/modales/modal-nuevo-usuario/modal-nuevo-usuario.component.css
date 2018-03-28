@@ -1,4 +1,4 @@
-mat-form-field {
+.fullWidth {
     width: 100%;
 }
 
@@ -13,4 +13,12 @@ li div:hover {
 
 ul {
     margin: 0;
+}
+.step {
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    background-color: black;
+    color: white;
+    text-align: center;
 }

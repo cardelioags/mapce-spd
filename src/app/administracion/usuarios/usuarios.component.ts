@@ -98,7 +98,7 @@ export class UsuariosComponent implements OnInit {
   openDialog() {
     this.dialog.open(ModalNuevoUsuarioComponent, {
       width: '100%',
-      maxWidth: '500px'
+      maxWidth: '700px'
     });
   }
 }

@@ -36,7 +36,8 @@ import {
     MatExpansionModule,
     MatDialogModule,
     MatCheckboxModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatRadioModule
   } from '@angular/material';
 
 @NgModule({
@@ -63,6 +64,7 @@ import {
         MatCheckboxModule,
         MatAutocompleteModule,
         MatDialogModule,
+        MatRadioModule,
         CovalentLayoutModule,
         CovalentStepsModule,
         CovalentMediaModule,
