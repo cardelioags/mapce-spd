@@ -8,6 +8,7 @@ import {
 import { RolesService } from '../../services/roles.service';
 import { MatDialog } from '@angular/material';
 import { ModalNuevoRolComponent } from './modales/modal-nuevo-rol/modal-nuevo-rol.component';
+import { ModalEditarRolComponent } from './modales/modal-editar-rol/modal-editar-rol.component';
 
 @Component({
   selector: 'app-roles',
@@ -18,7 +19,7 @@ import { ModalNuevoRolComponent } from './modales/modal-nuevo-rol/modal-nuevo-ro
 export class RolesComponent implements OnInit {
   columns: ITdDataTableColumn[] = [
     { name: 'descripcion', label: 'Descripción', sortable: true, width: 200 },
-    { name: 'alcance', label: 'Alcance', filter: true},
+    { name: 'menus', label: 'Permisos'}
   ];
 
   data: any[] = []; // see json data
@@ -34,20 +35,28 @@ export class RolesComponent implements OnInit {
   sortBy = 'descripcion';
   selectable = true;
   selectedRows: any[] = [];
-  multiple = true;
+  multiple = false;
   clickable = true;
   sortOrder: TdDataTableSortingOrder = TdDataTableSortingOrder.Descending;
 
   constructor(
     private _dataTableService: TdDataTableService,
     private _roles: RolesService,
-    private dialogNuevo: MatDialog
+    private dialogNuevo: MatDialog,
+    private dialogEditar: MatDialog
   ) { }
 
   openDialog() {
     const dialogRef = this.dialogNuevo.open(ModalNuevoRolComponent, {
       maxWidth: '500px',
       width: '100%',
+    });
+  }
+  openDialogEditar() {
+    const dialogRef = this.dialogEditar.open(ModalEditarRolComponent, {
+      maxWidth: '500px',
+      width: '100%',
+      data: this.selectedRows[0]
     });
   }
 

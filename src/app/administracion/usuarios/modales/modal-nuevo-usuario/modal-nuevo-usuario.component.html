@@ -2,74 +2,74 @@
 <mat-divider></mat-divider>
 
 <mat-dialog-content>
-  <form>
-    <h4> 1.- Buscar personal</h4>
-    <mat-form-field>
-      <mat-select placeholder="Campo de búsqueda" name="campo" [(ngModel)]="campoSelected">
-        <mat-option *ngFor="let campo of campos" [value]="campo.value">
-          {{ campo.campo }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <div *ngIf="campoSelected !== ''">
-      <mat-divider></mat-divider>
-      <h4>2.- Criterios de Búsqueda</h4>
-      <div layout="row">
-        <mat-form-field class="fullWidth" *ngIf="campoSelected==='curp'">
-          <input matInput name="curp" type="text" placeholder="CURP" [(ngModel)]="curp">
+    <form>
+        <h4> 1.- Buscar personal</h4>
+        <mat-form-field>
+            <mat-select placeholder="Campo de búsqueda" name="campo" [(ngModel)]="campoSelected">
+                <mat-option *ngFor="let campo of campos" [value]="campo.value">
+                    {{ campo.campo }}
+                </mat-option>
+            </mat-select>
         </mat-form-field>
-        <mat-form-field *ngIf="campoSelected==='nombre'">
-          <input matInput name="nombre" type="text" placeholder="Nombre" [(ngModel)]="nombre">
-        </mat-form-field>
-        <mat-form-field *ngIf="campoSelected==='nombre'">
-          <input matInput name="prim_apell" type="text" placeholder="Primer Apellido" [(ngModel)]="prim_apell">
-        </mat-form-field>
-        <mat-form-field *ngIf="campoSelected==='nombre'">
-          <input matInput name="segu_apell" type="text" placeholder="Segundo Apellido" [(ngModel)]="segu_apell">
-        </mat-form-field>
-        <button mat-raised-button (click)="buscarPersonal()" color="primary" style="height: 45px;" [disabled]="(curp.length + nombre.length + prim_apell.length + segu_apell.length) < 6">
+        <div *ngIf="campoSelected !== ''">
+            <mat-divider></mat-divider>
+            <h4>2.- Criterios de Búsqueda</h4>
+            <div layout="row">
+                <mat-form-field class="fullWidth" *ngIf="campoSelected==='curp'">
+                    <input matInput name="curp" type="text" placeholder="CURP" [(ngModel)]="curp">
+                </mat-form-field>
+                <mat-form-field *ngIf="campoSelected==='nombre'">
+                    <input matInput name="nombre" type="text" placeholder="Nombre" [(ngModel)]="nombre">
+                </mat-form-field>
+                <mat-form-field *ngIf="campoSelected==='nombre'">
+                    <input matInput name="prim_apell" type="text" placeholder="Primer Apellido" [(ngModel)]="prim_apell">
+                </mat-form-field>
+                <mat-form-field *ngIf="campoSelected==='nombre'">
+                    <input matInput name="segu_apell" type="text" placeholder="Segundo Apellido" [(ngModel)]="segu_apell">
+                </mat-form-field>
+                <button mat-raised-button (click)="buscarPersonal()" color="primary" style="height: 45px;" [disabled]="(curp.length + nombre.length + prim_apell.length + segu_apell.length) < 6">
           <mat-icon class="mat-18">search</mat-icon> Buscar
         </button>
-      </div>
-    </div>
-    <div>
-      <mat-radio-group layout="column" name="persona" [(ngModel)]="personaSelected">
-        <mat-radio-button *ngFor="let persona of personal" [value]="persona" style="margin-bottom: 10px;">{{persona.rfc + ' ' + persona.nombre + ' ' + persona.prim_apell + ' ' + persona.segu_apell}}</mat-radio-button>
-      </mat-radio-group>
-    </div>
-    <div *ngIf="personaSelected">
-      <h4>3.- Asigna roles y alcances</h4>
-      <div>Selección actual:
-        <b>{{personaSelected?.nombre + ' ' + personaSelected?.prim_apell + ' ' + personaSelected?.segu_apell}}</b>
-      </div>
-      <mat-divider></mat-divider>
-      <button mat-raised-button (click)="addAsignacion()" color="primary"><mat-icon class="mat-18">add</mat-icon> Añadir asignación</button>
-      <div layout="row" *ngFor="let asignacion of asignaciones; let idx = index">
-        <mat-form-field flex="50">
-          <mat-select placeholder="Elije un Rol">
-            <mat-option *ngFor="let food of foods" [value]="food.value">
-              {{ food.viewValue }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field flex="50">
-          <mat-select placeholder="Elije un Alcance">
-            <mat-option *ngFor="let food of foods" [value]="food.value">
-              {{ food.viewValue }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <a mat-icon-button>
-            <mat-icon class="mat-18">remove_circle</mat-icon>
-        </a>
-      </div>
-    </div>
-  </form>
+            </div>
+        </div>
+        <div>
+            <mat-radio-group layout="column" name="persona" [(ngModel)]="personaSelected">
+                <mat-radio-button *ngFor="let persona of personal" [value]="persona" style="margin-bottom: 10px;">{{persona.rfc + ' ' + persona.nombre + ' ' + persona.prim_apell + ' ' + persona.segu_apell}}</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div *ngIf="personaSelected">
+            <h4>3.- Asigna roles y alcances</h4>
+            <div>Selección actual:
+                <b>{{personaSelected?.nombre + ' ' + personaSelected?.prim_apell + ' ' + personaSelected?.segu_apell}}</b>
+            </div>
+            <mat-divider></mat-divider>
+            <button mat-raised-button (click)="addAsignacion()" color="primary"><mat-icon class="mat-18">add</mat-icon> Añadir asignación</button>
+            <div layout="row" *ngFor="let asignacion of asignaciones; let idx = index">
+                <mat-form-field flex="50">
+                    <mat-select placeholder="Elije un Rol">
+                        <mat-option *ngFor="let rol of roles" [value]="rol">
+                            {{ rol.descripcion }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field flex="50">
+                    <mat-select placeholder="Elije un Alcance">
+                        <mat-option *ngFor="let rol of roles" [value]="rol">
+                            {{ rol.descripcion }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <a mat-icon-button>
+                    <mat-icon class="mat-18">remove_circle</mat-icon>
+                </a>
+            </div>
+        </div>
+    </form>
 </mat-dialog-content>
 
 <mat-dialog-actions layout-align="end">
-  <button mat-button matDialogClose>Cancelar</button>
-  <button mat-button color="primary">
+    <button mat-button matDialogClose>Cancelar</button>
+    <button mat-button color="primary">
     <mat-icon class="mat-18">save</mat-icon> Guardar
   </button>
 </mat-dialog-actions>

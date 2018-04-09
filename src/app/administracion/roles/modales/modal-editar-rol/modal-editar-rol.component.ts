@@ -4,25 +4,25 @@ import { MenusService } from '../../../../services/menus.service';
 import { RolesService } from '../../../../services/roles.service';
 
 @Component({
-  selector: 'app-modal-nuevo-rol',
-  templateUrl: './modal-nuevo-rol.component.html',
-  styleUrls: ['./modal-nuevo-rol.component.css']
+  selector: 'app-modal-editar-rol',
+  templateUrl: './modal-editar-rol.component.html',
+  styleUrls: ['./modal-editar-rol.component.css']
 })
-export class ModalNuevoRolComponent implements OnInit {
-  public menuval = [];
-  public rol = {descripcion: '', menus: []};
+export class ModalEditarRolComponent implements OnInit {
+
+  public rol: any;
   public menus: any;
+
   constructor(
-    public dialogRef: MatDialogRef<ModalNuevoRolComponent>,
+    public dialogRef: MatDialogRef<ModalEditarRolComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private _menus: MenusService,
     private _roles: RolesService
   ) {}
 
   ngOnInit() {
-    this._menus.navMenu.subscribe(menus => {
-      this.menus = menus;
-    });
+    this.rol = this.data;
+    this.menus = this.rol.menus;
   }
   changeCheck(e, idxm, idxs?, idxo?) {
     if (idxs === undefined) {
@@ -49,10 +49,11 @@ export class ModalNuevoRolComponent implements OnInit {
   guardar() {
     alert('guardar');
     this.rol.menus = this.menus;
-    this._roles.nuevo(this.rol).subscribe(
+    this._roles.editar(this.rol).subscribe(
       res => {
         console.log(res);
       }
     );
   }
+
 }

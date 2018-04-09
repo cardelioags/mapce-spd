@@ -39,6 +39,7 @@ import {
     MatAutocompleteModule,
     MatRadioModule
   } from '@angular/material';
+import { MainMenuComponent } from '../main-menu/main-menu.component';
 
 @NgModule({
     declarations: [],

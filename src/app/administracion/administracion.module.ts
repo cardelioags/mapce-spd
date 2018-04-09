@@ -30,11 +30,7 @@ import { ModalNuevoMenuComponent } from './menus/modales/modal-nuevo-menu/modal-
         OpcionesModule,
         ImportadorModule
     ],
-    exports: [
-        AlcancesComponent,
-        MenusComponent,
-        MainAdministracionComponent,
-    ],
+    exports: [],
     providers: [],
     entryComponents: [ModalNuevoMenuComponent]
 })

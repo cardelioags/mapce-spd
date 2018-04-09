@@ -19,7 +19,27 @@
             <p>Bienvenido(a) al Módulo Estatal de Registro del Servicio Profesional Docente.</p>
             <p>Para ingresar al Módulo se requiere contar con cuenta institucional @iea.edu.mx y que dicha cuenta esté habilitada con el o los perfiles necesarios para operar el módulo.</p>
             <p>Si requiere contar con acceso al módulo contacte directamente con la Dirección del Servicio Profesional Docente del Instituto de Educación de Aguascalientes.</p>
-            <a mat-raised-button color="primary" id="googleBtn">Acceso Institucional</a>
+            <!--<a mat-raised-button color="primary" id="googleBtn">Acceso Institucional</a>-->
+            <mat-grid-list cols="2" rowHeight="fit" [style.height]="'170px'" [gutterSize]="'3px'">
+                <mat-grid-tile [colspan]="1" [rowspan]="1" class="bgc-blue-700">
+                    <mat-icon class="mat-48">person</mat-icon>
+                    <a id="googleBtn">
+                        <mat-grid-tile-footer>
+                            <h3 mat-line>Acceso General</h3>
+                            <span mat-line>Personal en Servicio y Aspirantes</span>
+                            <mat-icon>ligature</mat-icon>
+                        </mat-grid-tile-footer>
+                    </a>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1" class="bgc-orange-700">
+                    <mat-icon class="mat-48">verified_user</mat-icon>
+                    <mat-grid-tile-footer>
+                        <h3 mat-line>Acceso Administrativo</h3>
+                        <span mat-line>Acceso Institucional IEA</span>
+                        <mat-icon>ligature</mat-icon>
+                    </mat-grid-tile-footer>
+                </mat-grid-tile>
+            </mat-grid-list>
         </mat-card-content>
     </td-layout-card-over>
     <td-layout-footer>

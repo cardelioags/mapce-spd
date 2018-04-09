@@ -36,18 +36,20 @@ import { CctsService } from '../app/services/ccts.service';
 import { PersonasService } from './services/personas.service';
 import { NominaService } from './services/nomina.service';
 import { MainMenuComponent } from './main-menu/main-menu.component';
+import { IngresoModule } from './ingreso/ingreso.module';
+import { PromocionModule } from './promocion/promocion.module';
 
 @NgModule({
   declarations: [
     AppComponent,
+    MainMenuComponent,
     PrincipalComponent,
-    IngresoComponent,
-    PromocionComponent,
     DesempenoComponent,
     ReconocimientoComponent,
     FormacionContinuaComponent,
     AdministracionComponent,
-    MainMenuComponent
+    IngresoComponent,
+    PromocionComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +60,8 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
     SharedModule,
     AppRoutingModule,
     AdministracionModule,
+    IngresoModule,
+    PromocionModule
   ],
   providers: [
     TdMediaService,

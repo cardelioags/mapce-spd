@@ -19,13 +19,22 @@ import { ImportadorComponent } from './administracion/importador/importador.comp
 import { CctsComponent } from './administracion/ccts/ccts.component';
 import { NominaComponent } from './administracion/nomina/nomina.component';
 import { MenusComponent } from './administracion/menus/menus.component';
+import { MainIngresoComponent } from './ingreso/main-ingreso/main-ingreso.component';
+import { MainPromocionComponent } from './promocion/main-promocion/main-promocion.component';
+import { PrelacionesIngresoComponent } from './ingreso/prelaciones-ingreso/prelaciones-ingreso.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/principal', pathMatch: 'full' },
   { path: 'principal', component: PrincipalComponent },
-  { path: 'ingreso', component: IngresoComponent },
-  { path: 'promocion', component: PromocionComponent },
+  { path: 'ingreso', component: IngresoComponent, children: [
+    {path: '', component: MainIngresoComponent},
+    {path: 'prelaciones', component: PrelacionesIngresoComponent}
+  ]
+},
+  { path: 'promocion', component: PromocionComponent, children: [
+    {path: '', component: MainPromocionComponent}
+  ]},
   { path: 'desempeno', component: DesempenoComponent },
   { path: 'reconocimiento', component: ReconocimientoComponent },
   { path: 'formacionContinua', component: FormacionContinuaComponent },

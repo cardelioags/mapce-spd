@@ -9,50 +9,18 @@ import { MenusService } from './../services/menus.service';
   animations: [],
 })
 export class IngresoComponent implements AfterViewInit {
-  navMenu;
-  submenuNav = [
-    {
-      icon: 'arrow_back',
-      title: 'Ingreso',
-      description: 'Panel principal de Ingreso'
-    },
-    {
-      icon: 'people',
-      title: 'Proceso de Selección',
-      description: 'Administrar el registro de personal'
-    },
-    {
-      icon: 'face',
-      title: 'Personal Evaluado',
-      description: 'Administración de Cuentas de Usuarios'
-    },
-    {
-      icon: 'verified_user',
-      title: 'Incidencias',
-      description: 'Administración de roles'
-    },
-    {
-      icon: 'done_all',
-      title: 'Material de Apoyo',
-      description: 'Administra las opciones de menus y aplicación'
-    },
-    {
-      icon: 'view_list',
-      title: 'Normateca',
-      description: 'Define y administra alcances para los roles'
-    },
-  ];
+  public navMenu;
+  public subMenuNav;
 
   constructor(private _changeDetectorRef: ChangeDetectorRef,
-    public media: TdMediaService, public _menusService: MenusService) {
-      this.navMenu = this._menusService.getMenu();
+    public media: TdMediaService,
+    public _menu: MenusService
+  ) {
+      this.navMenu = this._menu.getMenu();
+      this._menu.getSubmenu('5ab86abb0f6e821dee8d4690');
     }
 
   ngAfterViewInit(): void {
-    // broadcast to all listener observables when loading the page
-    setTimeout(() => { // workaround since MatSidenav has issues redrawing at the beggining
-      this.media.broadcast();
-      this._changeDetectorRef.detectChanges();
-    });
+    this.subMenuNav = this._menu.subs;
   }
 }

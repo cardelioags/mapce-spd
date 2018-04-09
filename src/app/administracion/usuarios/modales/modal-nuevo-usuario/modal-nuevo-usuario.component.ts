@@ -35,7 +35,7 @@ export class ModalNuevoUsuarioComponent implements OnInit {
 
   ngOnInit() {
     this._roles.getRoles().subscribe(
-      res => {console.log(res); }
+      (res: any) => { this.roles = res; }
     );
     this._alcances.getAlcances().subscribe(
       res => {console.log(res); }

@@ -1,8 +1,8 @@
 <div style="position:fixed; z-index:997; right:30px; bottom: 50px;">
-    <a mat-mini-fab color="primary">
-        <mat-icon class="mat-18" (click)="openDialog()">add</mat-icon>
+    <a mat-mini-fab color="primary" (click)="openDialog()">
+        <mat-icon class="mat-18">add</mat-icon>
     </a>
-    <a mat-mini-fab color="accent">
+    <a mat-mini-fab color="accent" *ngIf="selectedRows.length > 0" (click)="openDialogEditar()">
         <mat-icon class="mat-18">edit</mat-icon>
     </a>
 </div>
@@ -23,7 +23,11 @@
                 </div>
                 <mat-divider></mat-divider>
                 <td-data-table #dataTable [data]="filteredData" [columns]="columns" [selectable]="selectable" [clickable]="clickable" [multiple]="multiple" [sortable]="true" [sortBy]="sortBy" [(ngModel)]="selectedRows" [sortOrder]="sortOrder" (sortChange)="sort($event)"
-                    (rowClick)="showAlert($event)" [style.height.px]="'auto'">
+                    (rowClick)="showAlert($event)">
+                    <ng-template tdDataTableTemplate="menus">
+                        <a mat-button>
+                            <mat-icon class="mat-18">info</mat-icon> Permisos</a>
+                    </ng-template>
                 </td-data-table>
                 <div class="md-padding" *ngIf="!dataTable.hasData" layout="row" layout-align="center center">
                     <h3>No hay resultados para mostrar.</h3>
