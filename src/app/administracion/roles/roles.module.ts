@@ -12,7 +12,6 @@ import { ModalEditarRolComponent } from './modales/modal-editar-rol/modal-editar
         ModalEditarRolComponent
     ],
     imports: [
-        CommonModule,
         SharedModule
     ],
     exports: [

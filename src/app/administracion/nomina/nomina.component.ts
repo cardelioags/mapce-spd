@@ -20,6 +20,7 @@ import { NominaService } from '../../services/nomina.service';
 export class NominaComponent implements OnInit {
   columns: ITdDataTableColumn[] = [
     { name: 'curp', label: 'CURP', sortable: true, width: 200 },
+    { name: 'persona.fullname', label: 'Nombre', sortable: true, width: 200},
     { name: 'rfc', label: 'RFC', filter: true, width: 200},
     { name: 'plaza', label: 'Plaza', width: 250 },
     { name: 'inicio_pago', label: 'Qnaa. Inicio'},

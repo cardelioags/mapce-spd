@@ -24,7 +24,6 @@ import { ReconocimientoComponent } from './reconocimiento/reconocimiento.compone
 import { FormacionContinuaComponent } from './formacion-continua/formacion-continua.component';
 import { AdministracionComponent } from './administracion/administracion.component';
 import { AlcancesComponent } from './administracion/alcances/alcances.component';
-
 import { SharedModule } from './shared/shared.module';
 import { AdministracionModule } from './administracion/administracion.module';
 import { UsuariosModule } from './administracion/usuarios/usuarios.module';
@@ -49,7 +48,7 @@ import { PromocionModule } from './promocion/promocion.module';
     FormacionContinuaComponent,
     AdministracionComponent,
     IngresoComponent,
-    PromocionComponent
+    PromocionComponent,
   ],
   imports: [
     BrowserModule,

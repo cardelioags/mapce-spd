@@ -12,6 +12,7 @@ import { CctsComponent } from './ccts/ccts.component';
 import { NominaComponent } from './nomina/nomina.component';
 import { MenusComponent } from './menus/menus.component';
 import { ModalNuevoMenuComponent } from './menus/modales/modal-nuevo-menu/modal-nuevo-menu.component';
+import { AlcancesModule } from './alcances/alcances.module';
 
 @NgModule({
     declarations: [
@@ -28,7 +29,8 @@ import { ModalNuevoMenuComponent } from './menus/modales/modal-nuevo-menu/modal-
         RolesModule,
         PersonasModule,
         OpcionesModule,
-        ImportadorModule
+        ImportadorModule,
+        AlcancesModule
     ],
     exports: [],
     providers: [],
