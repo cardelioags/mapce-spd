@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
-import { AlcancesComponent } from '../administracion/alcances/alcances.component';
 import { MainAdministracionComponent } from './main-administracion/main-administracion.component';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { RolesModule } from './roles/roles.module';
@@ -16,7 +15,6 @@ import { AlcancesModule } from './alcances/alcances.module';
 
 @NgModule({
     declarations: [
-        AlcancesComponent,
         MainAdministracionComponent,
         CctsComponent,
         NominaComponent,
