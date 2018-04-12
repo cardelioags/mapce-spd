@@ -14,5 +14,6 @@ export class RolesService {
         return this._http.post(this.url + '/roles', rol, {headers: {'content-type': 'application/json'}});
     }
     editar(rol) {
-        return this._http.put(this.url + '/roles', rol, {headers: {'content-type': 'application/json'}});    }
+        return this._http.put(this.url + '/roles', rol, {headers: {'content-type': 'application/json'}});
+    }
 }

@@ -17,7 +17,22 @@ router.route('/alcances')
     })
 })
 .put((req, res)=>{
-    res.send('TODO');
+    if (req.body.__V !== undefined) {
+        delete req.body.__V
+        console.log(req.body.__V);
+    };
+    Alcances.update(
+        {_id: req.body._id},
+        req.body,
+        {
+            upsert: true,
+            new: true
+        },
+        (err, alcance) => {
+            if (err) console.log(err);
+            res.json(alcance);
+        }
+    )
 })
 
 module.exports = router;

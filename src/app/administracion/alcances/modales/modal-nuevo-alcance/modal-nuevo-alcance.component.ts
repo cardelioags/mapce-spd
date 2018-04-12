@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AlcancesService } from '../../../../services/alcances.service';
+import { AlcancesComponent } from '../../alcances.component';
 
 @Component({
   selector: 'app-modal-nuevo-alcance',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalNuevoAlcanceComponent implements OnInit {
 
-  constructor() { }
+  public alcance = {};
+
+  constructor(
+    private _alcances: AlcancesService
+  ) { }
 
   ngOnInit() {
+  }
+
+  guardar() {
+    console.log(this.alcance);
+    this._alcances.guardarAlcance(this.alcance).subscribe(
+      (res) => {
+        console.log(res);
+      }
+    );
   }
 
 }

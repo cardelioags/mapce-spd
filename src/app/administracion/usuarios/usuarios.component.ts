@@ -6,7 +6,7 @@ import {
   TdDataTableService,
   IPageChangeEvent
 } from '@covalent/core';
-import { PersonasService } from '../../services/personas.service';
+import { UsuariosService } from '../../services/usuarios.service';
 import { MatDialog } from '@angular/material';
 import { ModalNuevoUsuarioComponent } from './modales/modal-nuevo-usuario/modal-nuevo-usuario.component';
 
@@ -14,7 +14,7 @@ import { ModalNuevoUsuarioComponent } from './modales/modal-nuevo-usuario/modal-
   selector: 'app-usuarios',
   templateUrl: './usuarios.component.html',
   styleUrls: ['./usuarios.component.css'],
-  providers: [PersonasService]
+  providers: [UsuariosService]
 })
 export class UsuariosComponent implements OnInit {
   columns: ITdDataTableColumn[] = [
@@ -42,13 +42,13 @@ export class UsuariosComponent implements OnInit {
 
   constructor(
     private _dataTableService: TdDataTableService,
-    private _personas: PersonasService,
+    private _usuarios: UsuariosService,
     private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
-    this._personas.getPersona().subscribe(
-      res => {
+    this._usuarios.getUsuarios().subscribe(
+      (res: any) => {
         this.data = res;
         console.log(res);
         this.filter();

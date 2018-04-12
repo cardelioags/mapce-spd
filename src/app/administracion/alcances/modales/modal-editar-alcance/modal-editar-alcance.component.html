@@ -1,3 +1,18 @@
-<p>
-  modal-editar-alcance works!
-</p>
+<h2>Editar Alcance</h2>
+<mat-divider></mat-divider>
+
+<mat-dialog-content>
+  <mat-form-field>
+    <input matInput [(ngModel)]="alcance.descripcion" required placeholder="Descripción">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="alcance.regex" placeholder="Criterio (Expresión Regular)">
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions layout-align="end">
+  <button mat-button matDialogClose>Cancelar</button>
+  <button mat-button color="primary" (click)="guardar()">
+    <mat-icon class="mat-18">save</mat-icon> Guardar
+  </button>
+</mat-dialog-actions>

@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { PersonasService } from '../../../../services/personas.service';
 import { AlcancesService } from '../../../../services/alcances.service';
 import { RolesService } from '../../../../services/roles.service';
+import { UsuariosService } from '../../../../services/usuarios.service';
 
 @Component({
   selector: 'app-modal-nuevo-usuario',
@@ -18,6 +19,9 @@ export class ModalNuevoUsuarioComponent implements OnInit {
   prim_apell = '';
   nombre = '';
   segu_apell = '';
+
+  public usuario;
+
   personaSelected: any;
   public campoSelected = '';
   public menuval = [];
@@ -29,6 +33,7 @@ export class ModalNuevoUsuarioComponent implements OnInit {
     public dialogRef: MatDialogRef<ModalNuevoUsuarioComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private _personal: PersonasService,
+    private _usuarios: UsuariosService,
     private _alcances: AlcancesService,
     private _roles: RolesService
   ) { }
@@ -69,5 +74,8 @@ export class ModalNuevoUsuarioComponent implements OnInit {
         alcance: ''
       }
     );
+  }
+  guardar() {
+    this._usuarios.getUsuarios();
   }
 }

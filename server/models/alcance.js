@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var AlcanceSchema = new Schema({
-    descripcion: String,
+    descripcion: {type: String, unique: true, required: true},
     regex: String
 }, {
     collection: 'alcances'

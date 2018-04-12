@@ -15,5 +15,8 @@ export class AlcancesService {
     getAlcances() {
         return this._http.get(this.url + '/alcances');
     }
+    guardarAlcance(data) {
+        return this._http.put(this.url + '/alcances', data, { headers: {'content-type': 'application/json'}});
+    }
 
 }

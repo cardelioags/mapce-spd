@@ -3,6 +3,8 @@ import { SharedModule } from '../../shared/shared.module';
 import { ModalNuevoAlcanceComponent } from './modales/modal-nuevo-alcance/modal-nuevo-alcance.component';
 import { ModalEditarAlcanceComponent } from './modales/modal-editar-alcance/modal-editar-alcance.component';
 import { AlcancesComponent } from './alcances.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
