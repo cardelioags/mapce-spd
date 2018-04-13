@@ -43,7 +43,7 @@ export class ModalNuevoUsuarioComponent implements OnInit {
       (res: any) => { this.roles = res; }
     );
     this._alcances.getAlcances().subscribe(
-      res => {console.log(res); }
+      ( res: any) => { this.alcances = res; }
     );
 
   }

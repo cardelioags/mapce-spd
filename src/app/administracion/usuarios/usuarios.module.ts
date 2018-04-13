@@ -4,6 +4,7 @@ import { ModalNuevoUsuarioComponent } from './modales/modal-nuevo-usuario/modal-
 import { SharedModule } from '../../shared/shared.module';
 import { AlcancesService } from '../../services/alcances.service';
 import { RolesService } from '../../services/roles.service';
+import { UsuariosService } from '../../services/usuarios.service';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,8 @@ import { RolesService } from '../../services/roles.service';
     ],
     providers: [
         AlcancesService,
-        RolesService
+        RolesService,
+        UsuariosService
     ],
     entryComponents: [ModalNuevoUsuarioComponent]
 })
