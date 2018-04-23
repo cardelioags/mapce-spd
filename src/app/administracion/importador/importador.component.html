@@ -42,7 +42,7 @@
     </td-paging-bar>
     <mat-divider></mat-divider>
     <mat-form-field style="width: 100%">
-      <mat-select placeholder="Selecciona la tabla a actualizar" [(ngModel)]="tablaSelected" (change)="comparaCampos(tablaSelected)">
+      <mat-select placeholder="Selecciona la tabla a actualizar" [(ngModel)]="tablaSelected" (change)="comparaCampos()">
         <mat-option *ngFor="let tabla of tablas" [value]="tabla">
           {{tabla.title}}
         </mat-option>

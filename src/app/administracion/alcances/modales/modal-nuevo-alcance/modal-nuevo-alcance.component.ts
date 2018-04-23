@@ -9,7 +9,10 @@ import { AlcancesComponent } from '../../alcances.component';
 })
 export class ModalNuevoAlcanceComponent implements OnInit {
 
-  public alcance = {};
+  public alcance = {
+    descripcion: '',
+    regex: ''
+  };
 
   constructor(
     private _alcances: AlcancesService
