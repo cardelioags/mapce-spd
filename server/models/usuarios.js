@@ -1,28 +1,27 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var Personal = require("./personal");
+var Persona = require("./personas");
 var Roles = require("./roles");
+var Alcances = require("./alcance");
 
 var UsuariosSchema = new Schema({
-    personal: {type:Schema.Types.ObjectId, ref:'Personal', unique:true},
-    rol: {type:Schema.Types.ObjectId, ref:'Rol'},
-    usuario: {type:String, lowercase:true},
-    contrasena: {type:String},
+    persona: { type: Schema.Types.ObjectId, ref: 'Persona' },
+    permisos: [{
+        rol: { type: Schema.Types.ObjectId, ref: 'Rol' },
+        alcance: { type: Schema.Types.ObjectId, ref: 'Alcance' },
+    }]
 }, {
     collection: 'usuarios',
-    toJSON: {virtuals: true},
-    toObject: {virtuals: true}    
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true }
 })
 
-UsuariosSchema.virtual('nombre').get(function(){
-    return this.personal.nombre
+UsuariosSchema.virtual('nombre').get(function() {
+    return this.persona.fullname
 })
-UsuariosSchema.virtual('email').get(function(){
-    return this.personal.email
-})
-UsuariosSchema.virtual('rolTitulo').get(function(){
-    return this.rol.titulo
+UsuariosSchema.virtual('email').get(function() {
+    return this.persona.email
 })
 
 module.exports = mongoose.model('Usuario', UsuariosSchema)

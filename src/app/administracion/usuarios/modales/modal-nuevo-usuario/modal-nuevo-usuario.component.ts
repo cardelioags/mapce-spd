@@ -20,13 +20,18 @@ export class ModalNuevoUsuarioComponent implements OnInit {
   nombre = '';
   segu_apell = '';
 
-  public usuario;
+  public usuario = {
+    persona: '',
+    permisos: []
+  };
 
   personaSelected: any;
   public campoSelected = '';
-  public menuval = [];
-  public personal = [];
-  public alcances = [];
+  public menuval;
+  public personal;
+  public alcances;
+  public alcance;
+  public rol;
   public roles = [];
   public asignaciones = [];
   constructor(
@@ -63,19 +68,26 @@ export class ModalNuevoUsuarioComponent implements OnInit {
         segu_apell: {$regex: this.segu_apell, $options: 'i'}
       };
       this._personal.getPersona(criterio).subscribe(personal => {
-          this.personal = personal;
+        this.personal = personal;
       });
     }
   }
   addAsignacion() {
     this.asignaciones.push(
       {
-        rol: '',
-        alcance: ''
+        rol: {},
+        alcance: {}
       }
     );
   }
   guardar() {
-    this._usuarios.getUsuarios();
+    this.usuario.persona = this.personaSelected._id;
+    this.usuario.permisos.push( {alcance: this.alcance._id, rol: this.rol._id} );
+    console.log( this.usuario );
+    this._usuarios.guardaUsuario(this.usuario).subscribe(
+      (resp) => {
+        console.log(resp);
+      }
+    );
   }
 }

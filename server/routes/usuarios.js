@@ -8,8 +8,9 @@ const Roles = require('../models/roles')
 router.route('/usuarios')
     .get((req, res) => {
         Usuarios.find()
-            .populate('rol')
-            .populate('personal')
+            .populate('persona')
+            .populate('permisos.rol')
+            .populate('permisos.alcance')
             .exec((err, usuario) => {
                 if (err) res.sendStatus(err);
                 res.json(usuario);
@@ -26,10 +27,9 @@ router.route('/usuarios')
         Usuarios.findById(req.body._id, (err, usuario) => {
             if (err) res.status(500).send(err)
             else {
-                usuario.nombre = req.body.usuario.toLowerCase();
-                usuario.contrasena = req.body.contrasena;
-                usuario.rol = req.body.rol;
-                usuario.save((err, rol) => {
+                usuario.persona = req.body.persona._id;
+                usuario.permisos = req.body.permisos;
+                usuario.save((err, usuario) => {
                     if (err) res.status(500).send(err);
                     else {
                         res.json(usuario);
@@ -48,9 +48,9 @@ router.route('/usuarios/:id')
     })
 router.route('/usuarios/:id/newpass')
     .put((req, res) => {
-        Usuarios.findOne({personal:req.params.id}, (err, usuario) => {
+        Usuarios.findOne({ personal: req.params.id }, (err, usuario) => {
             if (err) console.log(err);
-            if(usuario){
+            if (usuario) {
                 usuario.contrasena = req.body.pass;
                 usuario.save();
             }

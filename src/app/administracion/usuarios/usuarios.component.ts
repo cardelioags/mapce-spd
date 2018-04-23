@@ -18,9 +18,8 @@ import { ModalNuevoUsuarioComponent } from './modales/modal-nuevo-usuario/modal-
 })
 export class UsuariosComponent implements OnInit {
   columns: ITdDataTableColumn[] = [
-    { name: 'curp', label: 'CURP', sortable: true, width: 200 },
-    { name: 'fullname', label: 'Nombre', filter: true},
-    { name: 'email', label: '', numeric: true },
+    { name: 'nombre', label: 'Nombre', filter: true},
+    { name: 'email', label: 'Email', numeric: true },
   ];
 
   data: any[] = []; // see json data
@@ -33,7 +32,7 @@ export class UsuariosComponent implements OnInit {
   fromRow = 1;
   currentPage = 1;
   pageSize = 50;
-  sortBy = 'curp';
+  sortBy = 'nombre';
   selectable = true;
   clickable = true;
   selectedRows: any[] = [];
