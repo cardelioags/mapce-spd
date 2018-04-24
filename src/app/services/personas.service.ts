@@ -13,7 +13,7 @@ const httpOptions = {
 export class PersonasService {
     constructor(private _http: HttpClient) { }
 
-    private url = environment;
+    private url = environment.api;
 
     getPersona(dato?): Observable <any> {
         if (dato) {
