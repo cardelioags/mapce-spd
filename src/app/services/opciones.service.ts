@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class OpcionesService {
@@ -7,13 +8,13 @@ export class OpcionesService {
         private _http: HttpClient
     ) {}
 
-    private apiUrl = 'http://localhost:3000';
+    private apiUrl = environment.api;
 
     get(dato) {
         if (dato) {
-            return this._http.get(this.apiUrl + '/api/opciones');
+            return this._http.get(this.apiUrl + 'opciones');
         } else {
-            return this._http.get(this.apiUrl +  `/api/opciones/${dato}`);         }
+            return this._http.get(this.apiUrl +  `opciones/${dato}`);         }
     }
     post(dato) {
         return this._http.post(this.apiUrl, dato, {headers: {'content-type': 'application/json'}});
@@ -22,6 +23,6 @@ export class OpcionesService {
 
     put() {}
     getSchema() {
-        return this._http.get(this.apiUrl + '/api/opciones/model');
+        return this._http.get(this.apiUrl + 'opciones/model');
     }
 }

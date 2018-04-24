@@ -4,6 +4,7 @@ import { OpcionesService } from './opciones.service';
 import { CctsService } from './ccts.service';
 import { PersonasService } from './personas.service';
 import { NominaService } from './nomina.service';
+import { environment } from '../../environments/environment';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -13,6 +14,7 @@ const httpOptions = {
 
 @Injectable()
 export class TablasdbService {
+    private urlApi = environment.api;
     private tablas = [
         {
             title: 'Personas',
@@ -68,6 +70,6 @@ export class TablasdbService {
             data: data,
             id: id
         };
-        return this._http.put(`http://localhost:3000/api/${tabla}/importar`, conf, httpOptions);
+        return this._http.put(`${this.urlApi}${tabla}/importar`, conf, httpOptions);
     }
 }

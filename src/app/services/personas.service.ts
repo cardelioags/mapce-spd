@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { of } from 'rxjs/observable/of';
 import { catchError } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -12,22 +13,22 @@ const httpOptions = {
 export class PersonasService {
     constructor(private _http: HttpClient) { }
 
-    private url = 'http://localhost:3000';
+    private url = environment;
 
     getPersona(dato?): Observable <any> {
         if (dato) {
-            return this._http.post(`${this.url}/api/personas/buscar`, dato, httpOptions);
+            return this._http.post(`${this.url}personas/buscar`, dato, httpOptions);
         } else {
-            return this._http.get(`${this.url}/api/personas/`);
+            return this._http.get(`${this.url}personas/`);
         }
     }
     addPersona(dato): Observable <any> {
-        return this._http.post(`${this.url}/api/personas/`, dato, httpOptions);
+        return this._http.post(`${this.url}personas/`, dato, httpOptions);
     }
     upsertPersona(dato): Observable <any> {
-        return this._http.put(`${this.url}/api/personas/`, dato, httpOptions);
+        return this._http.put(`${this.url}personas/`, dato, httpOptions);
     }
     getSchema(): Observable <any> {
-        return this._http.get(`${this.url}/api/personas/model`);
+        return this._http.get(`${this.url}personas/model`);
     }
 }

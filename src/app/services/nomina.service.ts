@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -9,15 +10,15 @@ const httpOptions = {
 @Injectable()
 export class NominaService {
 
-    private url = 'http://localhost:3000/api/nomina';
+    private url = environment.api;
 
     constructor(
         private _http: HttpClient
     ) {}
     get() {
-        return this._http.get(this.url);
+        return this._http.get(this.url + 'nomina');
     }
     getSchema() {
-        return this._http.get(this.url + '/model');
+        return this._http.get(this.url + 'nomina/model');
     }
 }
