@@ -37,6 +37,7 @@ import { NominaService } from './services/nomina.service';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { IngresoModule } from './ingreso/ingreso.module';
 import { PromocionModule } from './promocion/promocion.module';
+import { LoginService } from './services/login.service';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { PromocionModule } from './promocion/promocion.module';
     PersonasService,
     NominaService,
     MenusService,
+    LoginService
   ],
   bootstrap: [AppComponent],
 })

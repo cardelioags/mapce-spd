@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const Usuarios = require('../models/usuarios')
-const Personal = require('../models/personal')
+const Personas = require('../models/personas')
 const Roles = require('../models/roles')
 
 router.route('/usuarios')
@@ -44,6 +44,13 @@ router.route('/usuarios/:id')
         Usuarios.findById(req.params.id, (err, usuario) => {
             if (err) console.log(err);
             res.json(usuario);
+        })
+    })
+router.route('/usuarios/email/:email')
+    .get((req, res) => {
+        Personas.findOne({email:req.params.email}, (err, persona) => {
+            if (err) console.log(err);
+            res.json(persona);
         })
     })
 router.route('/usuarios/:id/newpass')

@@ -1,17 +1,20 @@
 import { Injectable } from '@angular/core';
-
-declare const gapi: any;
+import { UsuariosService } from './usuarios.service';
+import { Observable } from 'rxjs/observable';
+import 'rxjs/add/observable/of';
 
 @Injectable()
 export class LoginService {
-    public auth2: any;
-    public googleInit() {
-        gapi.load('auth2', () => {
-            this.auth2 = gapi.auth2.init({
-                client_id: 'El id cliente para auth',
-                cookiepolicy: 'single_host_origin',
-                scope: 'profile email'
-            });
-        });
+    constructor( private _usuarios: UsuariosService) {  }
+    public googleInit(data) {
+        if (data.token && data.email) {
+            this._usuarios.getUsuarios(data.email).subscribe(
+                res => {
+                    console.log( res );
+                }
+            );
+        } else {
+            console.log('Acceso no valido!!');
+        }
     }
 }
