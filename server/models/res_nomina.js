@@ -26,10 +26,10 @@ var NominaSchema = new Schema({
     horas: Number,
 }, {
     toJSON: { virtuals: true },
-    collection: "nomina"
+    collection: 'nomina'
 });
 
-NominaSchema.virtual("plazaRfc").get(function() {
+NominaSchema.virtual('plazaRfc').get(function() {
     return this.plaza + this.rfc;
 });
 NominaSchema.virtual('persona', {
@@ -37,7 +37,13 @@ NominaSchema.virtual('persona', {
     localField: 'curp',
     foreignField: 'curp',
     justOne: true
-})
+});
+NominaSchema.virtual('cct_doc', {
+    ref: 'Ccts',
+    localField: 'cct',
+    foreignField: 'CVE_CCT',
+    justOne: true
+});
 
 
-module.exports = mongoose.model("Nomina", NominaSchema);
+module.exports = mongoose.model('Nomina', NominaSchema);

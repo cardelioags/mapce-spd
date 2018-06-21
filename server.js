@@ -62,14 +62,9 @@ const menusRoutes = require('./server/routes/menus')
 
 
 
-const alumnosRoutes = require('./server/routes/alumnos');
-const tutoresRoutes = require('./server/routes/tutores');
-const personalRoutes = require('./server/routes/personal');
 const rolesRoutes = require('./server/routes/roles');
 const usuariosRoutes = require('./server/routes/usuarios');
-const tutoriaRoutes = require('./server/routes/tutorias');
 const loginRoutes = require('./server/routes/login');
-const planesEst = require('./server/routes/planes-est');
 const subeFoto = require('./server/routes/foto');
 const repositorio = require('./server/routes/repositorio');
 
@@ -83,14 +78,9 @@ app.use('/api', [
     menusRoutes,
     opcionesRoutes,
     alcacesRoutes,
-    alumnosRoutes,
-    tutoresRoutes,
-    personalRoutes,
     rolesRoutes,
-    tutoriaRoutes,
     usuariosRoutes,
     loginRoutes,
-    planesEst,
     subeFoto,
     repositorio
 ]);

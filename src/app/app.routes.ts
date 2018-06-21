@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AppComponent } from './app.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { DesempenoComponent } from './desempeno/desempeno.component';
 import { IngresoComponent } from './ingreso/ingreso.component';
@@ -22,6 +21,7 @@ import { MenusComponent } from './administracion/menus/menus.component';
 import { MainIngresoComponent } from './ingreso/main-ingreso/main-ingreso.component';
 import { MainPromocionComponent } from './promocion/main-promocion/main-promocion.component';
 import { PrelacionesIngresoComponent } from './ingreso/prelaciones-ingreso/prelaciones-ingreso.component';
+import { AsignacionesComponent } from './ingreso/asignaciones/asignaciones.component';
 
 
 const routes: Routes = [
@@ -29,7 +29,8 @@ const routes: Routes = [
   { path: 'principal', component: PrincipalComponent },
   { path: 'ingreso', component: IngresoComponent, children: [
     {path: '', component: MainIngresoComponent},
-    {path: 'prelaciones', component: PrelacionesIngresoComponent}
+    {path: 'prelaciones', component: PrelacionesIngresoComponent},
+    {path: 'asignaciones', component: AsignacionesComponent}
   ]
 },
   { path: 'promocion', component: PromocionComponent, children: [

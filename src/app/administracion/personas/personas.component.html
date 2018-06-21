@@ -1,3 +1,12 @@
+<div style="position:fixed; z-index:997; right:30px; bottom: 50px;">
+    <a mat-mini-fab color="primary" (click)="modalNuevaPersona()">
+        <mat-icon class="mat-18">add</mat-icon>
+    </a>
+    <a mat-mini-fab color="accent" *ngIf="selectedRows.length > 0" (click)="modalEditarPersona()">
+        <mat-icon class="mat-18">edit</mat-icon>
+    </a>
+</div>
+
 <mat-card>
     <mat-card-content>
         <div layout="row" layout-align="start center" class="pad-left-sm pad-right-sm">

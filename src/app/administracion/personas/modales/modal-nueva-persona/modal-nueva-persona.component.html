@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Añadir Persona</h1>
+<div mat-dialog-content>
+    <p>Registra una nueva persona.</p>
+    <mat-form-field>
+        <input matInput placeholder="CURP" [(ngModel)]="data.curp">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="RFC" [(ngModel)]="data.rfc">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Primer Apellido" [(ngModel)]="data.prim_apell">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Segundo Apellido" [(ngModel)]="data.segu_apell">
+    </mat-form-field>
+    <mat-form-field>
+        <input type="email" placeholder="Correo Electrónico" matInput [(ngModel)]="data.email">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button matDialogClose>Cerrar</button>
+    <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Guardar</button>
+</div>

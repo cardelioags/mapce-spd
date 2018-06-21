@@ -6,6 +6,9 @@ import {
   TdDataTableService,
   IPageChangeEvent } from '@covalent/core';
 import { PersonasService } from '../../services/personas.service';
+import { MatDialog } from '@angular/material';
+import { ModalNuevaPersonaComponent } from './modales/modal-nueva-persona/modal-nueva-persona.component';
+import { ModalEditarPersonaComponent } from './modales/modal-editar-persona/modal-editar-persona.component';
 
 @Component({
   selector: 'app-personas',
@@ -41,6 +44,7 @@ export class PersonasComponent implements OnInit {
   constructor(
     private _dataTableService: TdDataTableService,
     private _personas: PersonasService,
+    private _dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -96,5 +100,28 @@ export class PersonasComponent implements OnInit {
     newData = this._dataTableService.sortData(newData, this.sortBy, this.sortOrder);
     newData = this._dataTableService.pageData(newData, this.fromRow, this.currentPage * this.pageSize);
     this.filteredData = newData;
+  }
+
+  modalNuevaPersona() {
+    const nuevaPersonaDialogRef = this._dialog.open(ModalNuevaPersonaComponent, {
+      width: 'auto',
+      data: this.selectedRows
+    });
+    nuevaPersonaDialogRef.afterClosed().subscribe(
+      res => {
+        console.log(res);
+      }
+    );
+  }
+  modalEditarPersona() {
+    const editarPersonaDialogRef = this._dialog.open(ModalEditarPersonaComponent, {
+      width: 'auto',
+      data: this.selectedRows
+    });
+    editarPersonaDialogRef.afterClosed().subscribe(
+      res => {
+        console.log(res);
+      }
+    );
   }
 }

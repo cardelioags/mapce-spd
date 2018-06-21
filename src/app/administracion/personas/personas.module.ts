@@ -1,29 +1,25 @@
 import { NgModule } from '@angular/core';
-import { BuscarPersonaComponent } from './tabs/buscar-persona/buscar-persona.component';
-import { EditarPersonaComponent } from './tabs/editar-persona/editar-persona.component';
-import { LayoutPersonaComponent } from './tabs/layout-persona/layout-persona.component';
-import { NuevaPersonaComponent } from './tabs/nueva-persona/nueva-persona.component';
 import { PersonasComponent } from './personas.component';
 import { SharedModule } from '../../shared/shared.module';
+import { ModalNuevaPersonaComponent } from './modales/modal-nueva-persona/modal-nueva-persona.component';
+import { ModalEditarPersonaComponent } from './modales/modal-editar-persona/modal-editar-persona.component';
 
 @NgModule({
     declarations: [
-        BuscarPersonaComponent,
-        EditarPersonaComponent,
-        LayoutPersonaComponent,
-        NuevaPersonaComponent,
-        PersonasComponent
+        PersonasComponent,
+        ModalNuevaPersonaComponent,
+        ModalEditarPersonaComponent
     ],
     imports: [
         SharedModule
     ],
     exports: [
-        BuscarPersonaComponent,
-        EditarPersonaComponent,
-        LayoutPersonaComponent,
-        NuevaPersonaComponent,
         PersonasComponent
     ],
     providers: [],
+    entryComponents: [
+        ModalEditarPersonaComponent,
+        ModalNuevaPersonaComponent
+    ]
 })
 export class PersonasModule {}
