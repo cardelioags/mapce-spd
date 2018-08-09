@@ -7,7 +7,7 @@ import {
 } from '@covalent/core';
 import { IPageChangeEvent } from '@covalent/core';
 import { PersonasService } from '../../services/personas.service';
-import * as XLSX from 'xlsx';
+import * as XLSX from 'xlsx/types';
 import { TablasdbService } from '../../services/tablasdb.service';
 
 @Component({

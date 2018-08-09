@@ -1,6 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { TdMediaService } from '@covalent/core';
-import { MenusService } from './../services/menus.service';
+import { MenusService } from '../services/menus.service';
 import { LoginService } from '../services/login.service';
 
 declare const gapi: any;

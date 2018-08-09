@@ -22,6 +22,7 @@ import { MainIngresoComponent } from './ingreso/main-ingreso/main-ingreso.compon
 import { MainPromocionComponent } from './promocion/main-promocion/main-promocion.component';
 import { PrelacionesIngresoComponent } from './ingreso/prelaciones-ingreso/prelaciones-ingreso.component';
 import { AsignacionesComponent } from './ingreso/asignaciones/asignaciones.component';
+import { VacanciasComponent } from './ingreso/vacancias/vacancias.component';
 
 
 const routes: Routes = [
@@ -30,7 +31,8 @@ const routes: Routes = [
   { path: 'ingreso', component: IngresoComponent, children: [
     {path: '', component: MainIngresoComponent},
     {path: 'prelaciones', component: PrelacionesIngresoComponent},
-    {path: 'asignaciones', component: AsignacionesComponent}
+    {path: 'asignaciones', component: AsignacionesComponent},
+    {path: 'vacancias', component: VacanciasComponent}
   ]
 },
   { path: 'promocion', component: PromocionComponent, children: [
